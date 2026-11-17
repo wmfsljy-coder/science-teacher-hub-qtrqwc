@@ -29,7 +29,7 @@ const pillMain =
 const keyLink =
   "text-xs font-bold text-slate-500 underline underline-offset-2 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300";
 
-/* 한 과목의 칠판모드: 대단원 → 단원 → 소단원(칠판 강의 · 혼자 복습 · 학습지 · 형성평가) */
+/* 한 과목의 칠판모드: 대단원 → 단원 → 소단원(칠판 강의 · 혼자 복습 · 학습지 · 형성평가 · 유튜브 영상) */
 export default async function BoardCoursePage({ params }: PageProps<"/board/[repo]">) {
   const { repo } = await params;
   const course = getCourse(repo);
@@ -132,6 +132,11 @@ export default async function BoardCoursePage({ params }: PageProps<"/board/[rep
                         {b.form && (
                           <a href={`${u.play}${b.form}`} target="_blank" rel="noopener" className={pill}>
                             ✅ 형성평가
+                          </a>
+                        )}
+                        {b.video && (
+                          <a href={b.video} target="_blank" rel="noopener" className={pill} title={b.videoTitle || "정리 영상"}>
+                            ▶️ 유튜브 영상
                           </a>
                         )}
                       </div>
