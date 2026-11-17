@@ -12,7 +12,8 @@ export const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export type FlowStep = { label: string; kind: "intro" | "story" | "step" };
 /** 칠판모드 한 소단원: 번호(01…), 소단원 이름, 단원 폴더 안 파일 이름(칠판 강의 화면 · 같은 번호의 개념정리 학습지 · 형성평가) */
-export type Board = { n: string; name: string; board: string; sheet: string | null; form?: string | null };
+/** video: 정리 영상(유튜브) 주소 · videoTitle: 영상 제목 — board-0N.html 의 sth-video 메타에서 읽음 */
+export type Board = { n: string; name: string; board: string; sheet: string | null; form?: string | null; video?: string | null; videoTitle?: string | null };
 export type Standard = { code: string; text: string };
 export type Period = { n: number; title: string; topic: string; terms: string[] };
 export type Counts = {
