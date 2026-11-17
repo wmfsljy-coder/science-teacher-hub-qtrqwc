@@ -22,6 +22,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OWNER = "wmfsljy-coder";
 const PAGES = `https://${OWNER}.github.io`;
 const HUB_DIR = path.resolve(ROOT, process.env.HUB_DIR || "..");
+/* 와이랩 유튜브 영상 ↔ 소단원 연결(허브 data/videos.json). 단원 화면은 assets/video-links.js 가 같은 목록을 읽음 */
+const VIDEOS = (() => { try { return JSON.parse(fs.readFileSync(path.join(HUB_DIR, "data", "videos.json"), "utf8")).videos || []; } catch { return []; } })();
 /* 저장소 이름(=GitHub Pages 주소)은 pages, 폴더 이름은 repo (2026-11-09 주소 변경) */
 const pg = (c) => c.pages || c.repo;
 const courses = JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "courses.json"), "utf8"));
@@ -201,7 +203,12 @@ for (const c of courses) {
         const sheet = fs.existsSync(path.join(ud, `sheet-${n}.html`)) ? `sheet-${n}.html` : null;
         /* 형성평가 form-0N.html (BOARD_GUIDE.md 형성평가) */
         const form = fs.existsSync(path.join(ud, `form-${n}.html`)) ? `form-${n}.html` : null;
-        return { n, name, board: m[0], sheet, form, video, videoTitle };
+        const videos = [];
+        if (video) videos.push({ url: video, title: videoTitle || "정리 영상", label: "유튜브 영상" });
+        for (const v of VIDEOS) for (const tg of v.targets || []) if (tg.repo === c.repo && tg.unit === slug && tg.n === n && !videos.some((x) => x.url === v.url)) videos.push({ url: v.url, title: v.title, label: v.label || "유튜브 영상" });
+        /* 메타 영상이 목록에도 있으면 목록 이름표를 씀 */
+        for (const x of videos) { const hit = VIDEOS.find((v) => v.url === x.url); if (hit && hit.label) x.label = hit.label; }
+        return { n, name, board: m[0], sheet, form, video, videoTitle, videos };
       });
 
     /* 대표 그림: 단원 화면에 처음 나오는 img/ 그림 */
