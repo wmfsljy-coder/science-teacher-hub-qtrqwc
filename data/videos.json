@@ -1,0 +1,90 @@
+{
+ "updated": "2026-11-17",
+ "note": "와이랩 유튜브 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
+ "videos": [
+  {
+   "id": "QUXF0ENOBEc",
+   "url": "https://youtube.com/shorts/QUXF0ENOBEc",
+   "title": "왜 태양은 불타는 게 아닌데 빛날까? | E=mc²와 수소 핵융합",
+   "label": "태양 핵융합 영상",
+   "dur": "1분 52초",
+   "note": "석탄 태양, 질량-에너지 등가(E = Δmc²), 수소 핵융합을 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-2",
+     "n": "01"
+    },
+    {
+     "repo": "integrated-science-1",
+     "pages": "integrated-science-1-m5s9xt",
+     "unit": "2-1",
+     "n": "02"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "3-2",
+     "n": "02"
+    }
+   ]
+  },
+  {
+   "id": "whzdXMDQaX0",
+   "url": "https://youtube.com/shorts/whzdXMDQaX0",
+   "title": "오늘 먹은 밥과 휴대폰 전기, 출발점은 어디일까? | 태양 에너지의 여행",
+   "label": "태양 에너지 흐름 영상",
+   "dur": "2분 11초",
+   "note": "햇빛이 열·바람·비·밥·석탄·전기로 바뀌는 길과, 태양에서 오지 않은 에너지(조력·지열·원자력)를 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-2",
+     "n": "01"
+    },
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-2",
+     "n": "02"
+    },
+    {
+     "repo": "integrated-science-1",
+     "pages": "integrated-science-1-m5s9xt",
+     "unit": "3-1",
+     "n": "02"
+    }
+   ]
+  },
+  {
+   "id": "6RGJQqqNC-M",
+   "url": "https://youtube.com/shorts/6RGJQqqNC-M",
+   "title": "지구 반대편 바다가 왜 우리 겨울을 바꿀까? | 엘니뇨",
+   "label": "엘니뇨 영상",
+   "dur": "2분 22초",
+   "note": "가열·냉각, 기압, 무역풍, 용승, 기압 역전(남방 진동), 이상기후까지 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-1",
+     "n": "03"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-2",
+     "n": "01"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-1",
+     "n": "02"
+    }
+   ]
+  }
+ ]
+}
