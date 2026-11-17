@@ -192,12 +192,16 @@ for (const c of courses) {
       .sort((a, b) => Number(a[1]) - Number(b[1]))
       .map((m) => {
         const n = m[1];
-        const t = strip((read(path.join(ud, m[0])).match(/<title>([\s\S]*?)<\/title>/) || [])[1] || "");
+        const bh = read(path.join(ud, m[0]));
+        const t = strip((bh.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || "");
+        /* 정리 영상(유튜브): board-0N.html 의 <meta name="sth-video" content="주소"> · <meta name="sth-video-title" content="제목"> */
+        const video = (bh.match(/<meta name="sth-video" content="([^"]+)"/) || [])[1] || null;
+        const videoTitle = (bh.match(/<meta name="sth-video-title" content="([^"]+)"/) || [])[1] || null;
         const name = t.replace(/^칠판 강의\s*·\s*/, "").replace(/\s*\([^)]*\)\s*$/, "").trim() || `${n} 소단원`;
         const sheet = fs.existsSync(path.join(ud, `sheet-${n}.html`)) ? `sheet-${n}.html` : null;
         /* 형성평가 form-0N.html (BOARD_GUIDE.md 형성평가) */
         const form = fs.existsSync(path.join(ud, `form-${n}.html`)) ? `form-${n}.html` : null;
-        return { n, name, board: m[0], sheet, form };
+        return { n, name, board: m[0], sheet, form, video, videoTitle };
       });
 
     /* 대표 그림: 단원 화면에 처음 나오는 img/ 그림 */
