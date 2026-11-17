@@ -134,11 +134,11 @@ export default async function BoardCoursePage({ params }: PageProps<"/board/[rep
                             ✅ 형성평가
                           </a>
                         )}
-                        {b.video && (
-                          <a href={b.video} target="_blank" rel="noopener" className={pill} title={b.videoTitle || "정리 영상"}>
-                            ▶️ 유튜브 영상
+                        {(b.videos || []).map((v) => (
+                          <a key={v.url} href={v.url} target="_blank" rel="noopener" className={pill} title={v.title}>
+                            ▶️ {v.label}
                           </a>
-                        )}
+                        ))}
                       </div>
                       {(b.sheet || b.form) && (
                         <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1" data-teacher>
