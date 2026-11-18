@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-18",
- "note": "와이랩 유튜브 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
+ "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
  "videos": [
   {
    "id": "QUXF0ENOBEc",

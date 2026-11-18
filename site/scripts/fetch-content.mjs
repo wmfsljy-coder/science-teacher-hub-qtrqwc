@@ -22,7 +22,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OWNER = "wmfsljy-coder";
 const PAGES = `https://${OWNER}.github.io`;
 const HUB_DIR = path.resolve(ROOT, process.env.HUB_DIR || "..");
-/* 와이랩 유튜브 영상 ↔ 소단원 연결(허브 data/videos.json). 단원 화면은 assets/video-links.js 가 같은 목록을 읽음 */
+/* 유튜브 「교실 너머 과학」(옛 와이랩) 영상 ↔ 소단원 연결(허브 data/videos.json). 단원 화면은 assets/video-links.js 가 같은 목록을 읽음 */
 const VIDEOS = (() => { try { return JSON.parse(fs.readFileSync(path.join(HUB_DIR, "data", "videos.json"), "utf8")).videos || []; } catch { return []; } })();
 /* 저장소 이름(=GitHub Pages 주소)은 pages, 폴더 이름은 repo (2026-11-09 주소 변경) */
 const pg = (c) => c.pages || c.repo;

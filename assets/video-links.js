@@ -1,4 +1,4 @@
-/* 과학 수업 허브 · 단원 화면에 관련 영상(와이랩 유튜브) 카드를 자동으로 붙입니다.
+/* 과학 수업 허브 · 단원 화면에 관련 영상(유튜브 「교실 너머 과학」) 카드를 자동으로 붙입니다.
  * 목록은 허브 data/videos.json (targets: pages·unit·n). 단원 index.html 끝에서 이 파일을 한 번 부릅니다.
  * 소단원 n 의 이야기 탭(data-panel = n-1) 마지막 장면 끝과, 칠판모드 탭(#board-wrap)의 n 번째 줄에 단추를 더합니다.
  * 같은 영상 주소가 이미 있으면 건너뜁니다. 목록을 못 읽으면 아무것도 하지 않습니다. */
@@ -21,7 +21,7 @@
           var host = scenes.length ? scenes[scenes.length - 1] : panel;
           var card = document.createElement("div");
           card.className = "info-card"; card.setAttribute("data-video", v.id || ""); card.style.margin = "0 0 14px";
-          card.innerHTML = "\uD83C\uDFAC <b>영상으로 다시 보기</b> — 「" + esc(v.title) + "」" + (v.dur ? " (" + esc(v.dur) + ", 와이랩)" : "") +
+          card.innerHTML = "\uD83C\uDFAC <b>영상으로 다시 보기</b> — 「" + esc(v.title) + "」" + (v.dur ? " (" + esc(v.dur) + ", 교실 너머 과학)" : "") +
             "<br>" + esc(v.note || "이야기를 먼저 해결한 뒤에 보면 정리에 도움이 됩니다.") +
             '<br><a class="btn primary" href="' + esc(v.url) + '" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;text-decoration:none">\u25B6 유튜브에서 영상 보기</a>';
           var sc = host.querySelector(":scope > .stage-card");
