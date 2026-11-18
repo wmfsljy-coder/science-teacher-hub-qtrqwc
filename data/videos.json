@@ -129,6 +129,22 @@
      "n": "03"
     }
    ]
+  },
+  {
+   "id": "vR1MeJZnDNY",
+   "url": "https://youtube.com/shorts/vR1MeJZnDNY",
+   "title": "석탄 100을 태우면 전구 빛은 겨우 2 | 효율 100%가 없는 이유",
+   "label": "에너지 효율 영상",
+   "dur": "1분 25초",
+   "note": "카르노가 꿰뚫어 본 열기관 효율의 한계(이론상 최대 약 63%), 석탄 100 → 전기 40 → 송전 후 38 → 백열전구 빛 2, 사라진 98은 열(에너지 보존), 같은 밝기에 LED는 전기를 75% 이상 덜 쓰는 이유를 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-2",
+     "n": "03"
+    }
+   ]
   }
  ]
 }
