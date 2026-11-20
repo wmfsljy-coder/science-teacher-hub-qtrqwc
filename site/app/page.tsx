@@ -1,12 +1,10 @@
 import HomeBrowser, { type CourseCardData, type SearchItem } from "@/components/HomeBrowser";
 import { TeacherMark } from "@/components/DeviceMode";
 import { ProgressSummary } from "@/components/Progress";
-import VideoShelf from "@/components/VideoShelf";
-import { assetUrl, getCourses, getVideos } from "@/lib/content";
+import { assetUrl, getCourses } from "@/lib/content";
 
 export default function Home() {
   const courses = getCourses();
-  const videos = getVideos();
   const unitTotal = courses.reduce((n, c) => n + c.units.length, 0);
 
   const courseCards: CourseCardData[] = courses.map((c) => ({
@@ -69,7 +67,6 @@ export default function Home() {
           {courses.length}과목 {unitTotal}단원. 지도안을 읽고, 학생에게 QR로 단원을 띄우고, &lsquo;수업 열기&rsquo;로 시작합니다.
         </p>
       </section>
-      <VideoShelf videos={videos} />
       <TeacherMark />
       <div className="mb-6">
         <ProgressSummary keys={courses.flatMap((c) => c.units.map((u) => u.key)).filter(Boolean)} />

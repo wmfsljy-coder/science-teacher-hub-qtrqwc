@@ -12,6 +12,6 @@
 
 ## 어디에 무엇이
 - `lib/courses.json` 과목 목록 · `scripts/fetch-content.mjs` 과목 저장소 읽기 → `content/generated.json`, `public/thumbs/` · `scripts/resources.mjs` 자료실 표 → `content/resources.json`
-- `app/page.tsx` 첫 화면 · `app/c/[repo]` 과목 · `app/u/[repo]/[unit]/plan` 지도안·QR · `app/resources` 자료실 · `app/qr` QR 모음 · `app/maps` 판 구조 지도
+- `app/page.tsx` 첫 화면 · `app/c/[repo]` 과목 · `app/u/[repo]/[unit]/plan` 지도안·QR · `app/resources` 자료실 · `app/qr` QR 모음 · `app/maps` 판 구조 지도 · `app/videos` 영상 모음(상단 메뉴 칠판모드 옆, data/videos.json → components/VideoShelf.tsx)
 - `components/Progress.tsx` 진도 막대 · `components/QrSheet.tsx` · `components/ResourceBrowser.tsx` · `components/DeviceMode.tsx`(첫 화면·QR 모음을 연 기기 = 교사 기기, 옛 허브와 같음)
 - `scripts/assemble-hub.mjs` 조립 · `scripts/check-units.mjs` 점검 · `scripts/serve-out.mjs` 로컬 서버
