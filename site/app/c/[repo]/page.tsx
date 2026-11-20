@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Counts from "@/components/Counts";
 import Thumb from "@/components/Thumb";
-import { assetUrl, BASE, getCourse, getCourses, type Unit } from "@/lib/content";
+import UnitVideos, { type UnitVideo } from "@/components/UnitVideos";
+import { assetUrl, BASE, getCourse, getCourses, getVideos, type Unit } from "@/lib/content";
 import { btnPrimary, btnSecondary, card, tone } from "@/lib/ui";
 
 export const dynamicParams = false;
@@ -23,6 +24,19 @@ export default async function CoursePage({ params }: PageProps<"/c/[repo]">) {
   const course = getCourse(repo);
   if (!course) notFound();
   const t = tone(course.color);
+
+  /* 단원별 연결 영상(허브 data/videos.json, 새것부터) — 단원 주소(play)로 맞춤 */
+  const allVideos = getVideos();
+  const videosOf = (u: Unit): UnitVideo[] =>
+    allVideos
+      .map((v) => ({ v, hits: v.units.filter((x) => x.play === u.play) }))
+      .filter((x) => x.hits.length)
+      .map(({ v, hits }) => ({
+        id: v.id,
+        title: v.title,
+        dur: v.dur,
+        secs: hits.map((h) => `${h.n} ${h.section}`.trim()),
+      }));
 
   /* 대단원(part)별로 묶기 */
   const groups: { part: string; units: Unit[] }[] = [];
@@ -77,7 +91,7 @@ export default async function CoursePage({ params }: PageProps<"/c/[repo]">) {
               {g.part}
             </h2>
           )}
-          <ul className="grid gap-5 md:grid-cols-2">
+          <ul className="grid items-start gap-5 md:grid-cols-2">
             {g.units.map((u) => (
               <li key={u.slug} className={`${card} flex flex-col overflow-hidden`}>
                 <div className="flex gap-4 p-4 sm:p-5">
@@ -95,14 +109,14 @@ export default async function CoursePage({ params }: PageProps<"/c/[repo]">) {
                 <div className="px-4 sm:px-5">
                   <Counts counts={u.counts} />
                 </div>
-                <div className="mt-auto grid grid-cols-2 gap-2 p-4 sm:p-5">
+                <UnitVideos videos={videosOf(u)} unitTitle={`${course.repo}-${u.slug}`}>
                   <a href={u.play} className={btnPrimary} aria-label={`${u.title} 수업 열기`}>
                     수업 열기
                   </a>
                   <Link href={`/u/${course.repo}/${u.slug}/plan/`} className={btnSecondary} data-teacher>
                     지도안·QR
                   </Link>
-                </div>
+                </UnitVideos>
               </li>
             ))}
           </ul>
