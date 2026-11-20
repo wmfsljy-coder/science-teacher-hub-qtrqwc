@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BoardVideos from "@/components/BoardVideos";
 import { TeacherMark } from "@/components/DeviceMode";
 import { getCourse, getCourses, type Unit } from "@/lib/content";
 import { card, tone } from "@/lib/ui";
@@ -28,6 +29,9 @@ const pillMain =
   "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-teal-700 px-3 text-sm font-bold text-white transition hover:bg-teal-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400";
 const keyLink =
   "text-xs font-bold text-slate-500 underline underline-offset-2 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300";
+
+/* 유튜브 주소에서 영상 ID(11자) 꺼내기 */
+const ytId = (url: string) => (url.match(/(?:shorts\/|v=|youtu\.be\/|embed\/)([\w-]{11})/) || [])[1] || "";
 
 /* 한 과목의 칠판모드: 대단원 → 단원 → 소단원(칠판 강의 · 혼자 복습 · 학습지 · 형성평가 · 유튜브 영상) */
 export default async function BoardCoursePage({ params }: PageProps<"/board/[repo]">) {
@@ -121,6 +125,12 @@ export default async function BoardCoursePage({ params }: PageProps<"/board/[rep
                         <a href={`${u.play}${b.board}`} target="_blank" rel="noopener" className={pillMain}>
                           📺 칠판 강의
                         </a>
+                        <BoardVideos
+                          name={`${u.chapter} ${b.n} ${b.name}`}
+                          videos={(b.videos || [])
+                            .map((v) => ({ id: ytId(v.url), url: v.url, title: v.title, label: v.label }))
+                            .filter((v) => v.id)}
+                        />
                         <a href={`${u.play}${b.board}?s=1`} target="_blank" rel="noopener" className={pill}>
                           🔁 혼자 복습
                         </a>
@@ -134,11 +144,6 @@ export default async function BoardCoursePage({ params }: PageProps<"/board/[rep
                             ✅ 형성평가
                           </a>
                         )}
-                        {(b.videos || []).map((v) => (
-                          <a key={v.url} href={v.url} target="_blank" rel="noopener" className={pill} title={v.title}>
-                            ▶️ {v.label}
-                          </a>
-                        ))}
                       </div>
                       {(b.sheet || b.form) && (
                         <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1" data-teacher>
