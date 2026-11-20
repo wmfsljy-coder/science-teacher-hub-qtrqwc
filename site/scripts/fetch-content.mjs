@@ -262,6 +262,26 @@ for (const c of courses) {
   console.log(`${c.name}: ${units.length}개 단원`);
 }
 
+/* 첫 화면 '유튜브 영상 모음' — data/videos.json 을 새것부터, 연결된 단원(과목·단원·소단원 이름·주소)을 붙여서 */
+out.videos = VIDEOS.slice()
+  .reverse()
+  .map((v) => {
+    const id = v.id || (String(v.url || "").match(/(?:shorts\/|v=|youtu\.be\/|embed\/)([\w-]{11})/) || [])[1];
+    if (!id) return null;
+    const units = [];
+    for (const tg of v.targets || []) {
+      const c = out.courses.find((x) => x.repo === tg.repo);
+      const u = c && c.units.find((x) => x.slug === tg.unit);
+      if (!c || !u) continue;
+      const same = (a) => Number(a) === Number(tg.n);
+      const sec = (u.sections.find((s) => same(s[0])) || [])[1] || (u.boards.find((b) => same(b.n)) || {}).name || "";
+      units.push({ course: c.name, color: c.color, chapter: tg.unit, n: tg.n, section: sec, title: u.title, play: u.play });
+    }
+    return { id, url: v.url || `https://youtube.com/shorts/${id}`, title: v.title || "", label: v.label || "", dur: v.dur || "", note: v.note || "", units };
+  })
+  .filter(Boolean);
+console.log(`영상 모음: ${out.videos.length}편`);
+
 fs.mkdirSync(path.join(ROOT, "content"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "content", "generated.json"), JSON.stringify(out, null, 1));
 console.log(`완료: 과목 ${out.courses.length}개, 단원 ${unitTotal}개 → content/generated.json`);

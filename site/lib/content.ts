@@ -70,7 +70,11 @@ export type Course = {
   units: Unit[];
 };
 
-type Generated = { generatedAt: string; courses: Course[] };
+/** 첫 화면 '유튜브 영상 모음' 한 편 — 허브 data/videos.json 을 fetch-content 가 새것부터 정리(연결 단원 이름·주소 포함) */
+export type VideoUnit = { course: string; color: string; chapter: string; n: string; section: string; title: string; play: string };
+export type Video = { id: string; url: string; title: string; label: string; dur: string; note: string; units: VideoUnit[] };
+
+type Generated = { generatedAt: string; courses: Course[]; videos?: Video[] };
 
 let cache: Generated | null = null;
 
@@ -100,6 +104,10 @@ export function getUnit(repo: string, slug: string): { course: Course; unit: Uni
 
 export function getAllUnits(): Unit[] {
   return getCourses().flatMap((c) => c.units);
+}
+
+export function getVideos(): Video[] {
+  return load().videos ?? [];
 }
 
 export function generatedAt(): string {
