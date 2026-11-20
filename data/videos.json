@@ -207,6 +207,22 @@
      "n": "03"
     }
    ]
+  },
+  {
+   "id": "QgkHpeV6q1I",
+   "url": "https://youtube.com/shorts/QgkHpeV6q1I",
+   "title": "그림 속 달은 왜 위로 볼록할까? | 신윤복 「월하정인」과 부분월식",
+   "label": "월하정인 부분월식 영상",
+   "dur": "42초",
+   "note": "그림 속 달이 초승달·그믐달이 아닌 이유(밝은 쪽은 해 쪽)와, 지구 본그림자가 달 아래쪽을 가리는 부분월식 가설(1793년 8월 21일 계산)을 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "3-1",
+     "n": "03"
+    }
+   ]
   }
  ]
 }
