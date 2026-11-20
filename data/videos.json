@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-20",
  "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
  "videos": [
   {
@@ -142,6 +142,56 @@
      "repo": "integrated-science-2",
      "pages": "integrated-science-2-yt735f",
      "unit": "2-2",
+     "n": "03"
+    }
+   ]
+  },
+  {
+   "id": "GK58HyoiN2k",
+   "url": "https://youtube.com/shorts/GK58HyoiN2k",
+   "title": "빅뱅의 증거는 왜 '잡음'으로 발견됐을까? | 우주 배경 복사",
+   "label": "우주 배경 복사 영상",
+   "dur": "1분 41초",
+   "note": "비둘기 똥 잡음 추리 → 38만 년 전후(안개가 걷히듯 빛이 퍼져 나감) → 파장이 늘어 2.7K → 1948년 예측과 정상 우주론 비교까지, 빅뱅 우주론의 증거를 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-1",
+     "pages": "integrated-science-1-m5s9xt",
+     "unit": "2-1",
+     "n": "01"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "3-2",
+     "n": "04"
+    }
+   ]
+  },
+  {
+   "id": "Psl5byWqemQ",
+   "url": "https://youtube.com/shorts/Psl5byWqemQ",
+   "title": "11월에 또 태풍? 올해만 32개 | 엘니뇨와 태풍의 연료 길",
+   "label": "태풍과 엘니뇨 영상",
+   "dur": "1분 0초",
+   "note": "올해 북서태평양 태풍 32개, 태풍의 연료(수증기·잠열), 뜨거워진 바다와 엘니뇨가 바꾼 태풍의 출발점과 경로를 위성 지도 모식도로 정리합니다.",
+   "targets": [
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-1",
+     "n": "04"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-2",
+     "n": "01"
+    },
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-1",
      "n": "03"
     }
    ]
