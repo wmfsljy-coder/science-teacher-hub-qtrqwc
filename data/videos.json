@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
   "videos": [
     {
@@ -309,6 +309,40 @@
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-2",
           "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "TMU-CBmtQxI",
+      "url": "https://youtube.com/shorts/TMU-CBmtQxI",
+      "title": "율곡 이이가 일기에 적은 '손님별'의 정체 | 1572년 초신성",
+      "label": "튀코 초신성 영상",
+      "dur": "1분 28초",
+      "note": "율곡의 『석담일기』와 튀코 브라헤가 본 1572년 새 별, 아리스토텔레스의 변하지 않는 하늘, 지구 자전으로 생기는 시차와 달만큼 가까웠다면 생겼을 약 1° 어긋남, 백색 왜성이 터진 Ia형 초신성, 튀코의 관측에서 케플러 법칙까지를 정리합니다.",
+      "targets": [
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "04"
+        },
+        {
+          "repo": "science-inquiry-1",
+          "pages": "science-inquiry-1-ha7iz5",
+          "unit": "1-1",
+          "n": "02"
+        },
+        {
+          "repo": "planet-space-2",
+          "pages": "planet-space-2-v7c45w",
+          "unit": "2-1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-2",
+          "n": "02"
         }
       ]
     }
