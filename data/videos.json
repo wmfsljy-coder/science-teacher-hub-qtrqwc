@@ -245,6 +245,28 @@
      "n": "02"
     }
    ]
+  },
+  {
+   "id": "B6J2hImTYzE",
+   "url": "https://youtube.com/shorts/B6J2hImTYzE",
+   "title": "「절규」의 붉은 하늘, 지구 반대편 화산 때문이었을까? | 뭉크와 크라카타우",
+   "label": "절규와 크라카타우 화산 영상",
+   "dur": "1분 26초",
+   "note": "1883년 크라카타우 분화의 기압 파동과 성층권 황산 방울(에어로졸), 파란 하늘과 붉은 노을의 원리(레일리 산란), 「절규」 하늘 해석을 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-2",
+     "n": "02"
+    },
+    {
+     "repo": "earth-system-1",
+     "pages": "earth-system-1-n87d3q",
+     "unit": "1-2",
+     "n": "03"
+    }
+   ]
   }
  ]
 }
