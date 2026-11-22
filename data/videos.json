@@ -383,6 +383,28 @@
           "n": "02"
         }
       ]
+    },
+    {
+      "id": "Ze6tv90qFvI",
+      "url": "https://youtube.com/shorts/Ze6tv90qFvI",
+      "title": "세종 때 일식 예보 15분 틀렸다고 곤장을 맞았다 | 칠정산",
+      "label": "세종 일식과 칠정산 영상",
+      "dur": "1분 15초",
+      "note": "1422년 세종실록에 남은 일식 예보 1각(약 15분) 오차와 곤장, 일식이 나라의 큰일이었던 까닭, 한양 기준으로 해와 달의 움직임을 계산한 역법 칠정산, 2035년 9월 2일 서울 부분일식 예고를 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-1",
+          "n": "03"
+        },
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "03"
+        }
+      ]
     }
   ]
 }
