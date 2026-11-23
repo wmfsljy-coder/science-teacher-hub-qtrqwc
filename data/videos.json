@@ -421,6 +421,50 @@
      "n": "02"
     }
    ]
+  },
+  {
+   "id": "Ukn46oT5Dlk",
+   "url": "https://youtube.com/shorts/Ukn46oT5Dlk",
+   "title": "해가 사라지자 6년 전쟁이 멈췄다 | 기원전 585년 할리스 강 일식",
+   "label": "할리스 강 일식 영상",
+   "dur": "1분 30초",
+   "note": "헤로도토스가 적은 기원전 585년 할리스 강 전투의 일식, 달 그림자가 달의 공전과 지구 자전으로 좁은 띠를 그리는 원리, 사로스 주기(18년 11일 8시간), 조석 마찰로 느려진 지구 자전(ΔT)을 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "3-1",
+     "n": "03"
+    },
+    {
+     "repo": "science-history-culture",
+     "pages": "science-history-culture-unsp9m",
+     "unit": "1",
+     "n": "02"
+    },
+    {
+     "repo": "earth-system-2",
+     "pages": "earth-system-2-yd8mc7",
+     "unit": "2-1",
+     "n": "04"
+    }
+   ]
+  },
+  {
+   "id": "dNgUi0S6Nak",
+   "url": "https://youtube.com/shorts/dNgUi0S6Nak",
+   "title": "참새 20억 마리를 잡았더니, 이듬해 벌레가 들끓었다 | 생태 피라미드",
+   "label": "참새와 생태 피라미드 영상",
+   "dur": "1분 12초",
+   "note": "1958년 참새 박멸 뒤 벌레가 늘어난 사례로 먹이 관계와 생태 피라미드, 단계마다 약 10%만 넘어가는 에너지, 위 단계가 빠질 때 생태계 평형이 깨지는 과정을 영상으로 정리합니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "2-1",
+     "n": "02"
+    }
+   ]
   }
  ]
 }
