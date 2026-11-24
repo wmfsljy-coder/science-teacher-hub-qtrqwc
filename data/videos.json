@@ -1,470 +1,498 @@
 {
- "updated": "2026-11-23",
- "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
- "videos": [
-  {
-   "id": "QUXF0ENOBEc",
-   "url": "https://youtube.com/shorts/QUXF0ENOBEc",
-   "title": "왜 태양은 불타는 게 아닌데 빛날까? | E=mc²와 수소 핵융합",
-   "label": "태양 핵융합 영상",
-   "dur": "1분 52초",
-   "note": "석탄 태양, 질량-에너지 등가(E = Δmc²), 수소 핵융합을 영상으로 정리합니다.",
-   "targets": [
+  "updated": "2026-11-25",
+  "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
+  "videos": [
     {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-2",
-     "n": "01"
+      "id": "QUXF0ENOBEc",
+      "url": "https://youtube.com/shorts/QUXF0ENOBEc",
+      "title": "왜 태양은 불타는 게 아닌데 빛날까? | E=mc²와 수소 핵융합",
+      "label": "태양 핵융합 영상",
+      "dur": "1분 52초",
+      "note": "석탄 태양, 질량-에너지 등가(E = Δmc²), 수소 핵융합을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "2-1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-2",
+          "n": "02"
+        }
+      ]
     },
     {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "2-1",
-     "n": "02"
+      "id": "whzdXMDQaX0",
+      "url": "https://youtube.com/shorts/whzdXMDQaX0",
+      "title": "오늘 먹은 밥과 휴대폰 전기, 출발점은 어디일까? | 태양 에너지의 여행",
+      "label": "태양 에너지 흐름 영상",
+      "dur": "2분 11초",
+      "note": "햇빛이 열·바람·비·밥·석탄·전기로 바뀌는 길과, 태양에서 오지 않은 에너지(조력·지열·원자력)를 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "02"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        }
+      ]
     },
     {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-2",
-     "n": "02"
+      "id": "qvPDdxdJ5Ik",
+      "url": "https://youtube.com/shorts/qvPDdxdJ5Ik",
+      "title": "지구 반대편 바다가 왜 우리 겨울을 바꿀까? | 엘니뇨와 라니냐",
+      "label": "엘니뇨·라니냐 영상",
+      "dur": "2분 44초",
+      "note": "가열·냉각, 기압, 무역풍, 용승, 기압 역전(남방 진동), 이상기후, 반대 현상인 라니냐까지 세계지도 위 입체 모형으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-1",
+          "n": "03"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-2",
+          "n": "01"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "DeqhJRaZ4cY",
+      "url": "https://youtube.com/shorts/DeqhJRaZ4cY",
+      "title": "밀물과 썰물은 왜 하루 두 번 올까?",
+      "label": "조석 영상",
+      "dur": "2분 24초",
+      "note": "달의 인력과 원심력이 만드는 기조력, 물때가 하루 약 50분씩 늦어지는 이유(달 공전 약 12°·지구 자전 15°/시간), 보름·그믐의 사리와 상현·하현의 조금을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "04"
+        }
+      ]
+    },
+    {
+      "id": "dycg8euJ5jQ",
+      "url": "https://youtube.com/shorts/dycg8euJ5jQ",
+      "title": "온실 효과가 없으면 왜 지구가 얼어붙을까?",
+      "label": "온실 효과 영상",
+      "dur": "2분 10초",
+      "note": "복사 평형 온도(약 −18℃), 태양 복사와 지구 복사, 대기의 선택적 흡수와 대기의 창, 재복사, 온실 효과의 강화와 지구 온난화를 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "01"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-2",
+          "n": "03"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-1",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-1",
+          "pages": "earth-system-1-n87d3q",
+          "unit": "1-1",
+          "n": "01"
+        },
+        {
+          "repo": "earth-system-1",
+          "pages": "earth-system-1-n87d3q",
+          "unit": "1-1",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "vR1MeJZnDNY",
+      "url": "https://youtube.com/shorts/vR1MeJZnDNY",
+      "title": "석탄 100을 태우면 전구 빛은 겨우 2 | 효율 100%가 없는 이유",
+      "label": "에너지 효율 영상",
+      "dur": "1분 25초",
+      "note": "카르노가 꿰뚫어 본 열기관 효율의 한계(이론상 최대 약 63%), 석탄 100 → 전기 40 → 송전 후 38 → 백열전구 빛 2, 사라진 98은 열(에너지 보존), 같은 밝기에 LED는 전기를 75% 이상 덜 쓰는 이유를 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "GK58HyoiN2k",
+      "url": "https://youtube.com/shorts/GK58HyoiN2k",
+      "title": "빅뱅의 증거는 왜 '잡음'으로 발견됐을까? | 우주 배경 복사",
+      "label": "우주 배경 복사 영상",
+      "dur": "1분 41초",
+      "note": "비둘기 똥 잡음 추리 → 38만 년 전후(안개가 걷히듯 빛이 퍼져 나감) → 파장이 늘어 2.7K → 1948년 예측과 정상 우주론 비교까지, 빅뱅 우주론의 증거를 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "2-1",
+          "n": "01"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-2",
+          "n": "04"
+        }
+      ]
+    },
+    {
+      "id": "Psl5byWqemQ",
+      "url": "https://youtube.com/shorts/Psl5byWqemQ",
+      "title": "11월에 또 태풍? 올해만 32개 | 엘니뇨와 태풍의 연료 길",
+      "label": "태풍과 엘니뇨 영상",
+      "dur": "1분 0초",
+      "note": "올해 북서태평양 태풍 32개, 태풍의 연료(수증기·잠열), 뜨거워진 바다와 엘니뇨가 바꾼 태풍의 출발점과 경로를 위성 지도 모식도로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "04"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-2",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-1",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "QgkHpeV6q1I",
+      "url": "https://youtube.com/shorts/QgkHpeV6q1I",
+      "title": "그림 속 달은 왜 위로 볼록할까? | 신윤복 「월하정인」과 부분월식",
+      "label": "월하정인 부분월식 영상",
+      "dur": "42초",
+      "note": "그림 속 달이 초승달·그믐달이 아닌 이유(밝은 쪽은 해 쪽)와, 지구 본그림자가 달 아래쪽을 가리는 부분월식 가설(1793년 8월 21일 계산)을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-1",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "8rruy5KxRZo",
+      "url": "https://youtube.com/shorts/8rruy5KxRZo",
+      "title": "풍선 42개로 4,900m까지 날아간 남자 | 진짜 '업'",
+      "label": "정원 의자 풍선 비행 영상",
+      "dur": "1분 24초",
+      "note": "높이 올라갈수록 기압이 낮아지는데도 풍선이 계속 뜨는 이유(위아래 기압 차이, 풍선 팽창)와 기온 감률을 1982년 실화로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "B6J2hImTYzE",
+      "url": "https://youtube.com/shorts/B6J2hImTYzE",
+      "title": "「절규」의 붉은 하늘, 지구 반대편 화산 때문이었을까? | 뭉크와 크라카타우",
+      "label": "절규와 크라카타우 화산 영상",
+      "dur": "1분 26초",
+      "note": "1883년 크라카타우 분화의 기압 파동과 성층권 황산 방울(에어로졸), 파란 하늘과 붉은 노을의 원리(레일리 산란), 「절규」 하늘 해석을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-2",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-1",
+          "pages": "earth-system-1-n87d3q",
+          "unit": "1-2",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "01"
+        }
+      ]
+    },
+    {
+      "id": "XQREDEjHY_U",
+      "url": "https://youtube.com/shorts/XQREDEjHY_U",
+      "title": "같은 강원도인데 15도 차이? | 산을 넘으면 더워지는 바람, 높새바람",
+      "label": "높새바람(푄) 영상",
+      "dur": "1분 33초",
+      "note": "공기 덩어리가 태백산맥을 넘으며 건조·습윤 단열 감률, 상승 응결 고도, 단열 압축을 거치는 과정을 단계 기록 카드로 따라가고, 풍향(동풍·남서풍)에 따라 영서·영동 중 더운 쪽이 바뀌는 실제 사례(2016-05-20, 2023-05-16)를 비교합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "w76c_F-89-Q",
+      "url": "https://youtube.com/shorts/w76c_F-89-Q",
+      "title": "엔진 두 개가 다 멈춘 여객기는 왜 떨어지지 않았을까?",
+      "label": "허드슨강 여객기 영상",
+      "dur": "1분 17초",
+      "note": "2009년 허드슨강의 기적으로 양력(날개 아래위 기압 차, 공기 흐름을 아래로 꺾는 반작용), 엔진 없이 높이를 내주며 나아가는 활공, 모의 비행으로 본 판단 시간 35초를 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-2",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "USWsewzGL7k",
+      "url": "https://youtube.com/shorts/USWsewzGL7k",
+      "title": "율곡 이이가 일기에 적은 '손님별'의 정체 | 1572년 초신성",
+      "label": "튀코 초신성 영상",
+      "dur": "1분 33초",
+      "note": "율곡의 『석담일기』와 튀코 브라헤가 본 1572년 새 별, 아리스토텔레스의 변하지 않는 하늘, 지구 자전으로 생기는 시차와 달만큼 가까웠다면 생겼을 약 1° 어긋남, 백색 왜성이 터진 Ia형 초신성, 튀코의 관측에서 케플러 법칙까지를 정리합니다.",
+      "targets": [
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "04"
+        },
+        {
+          "repo": "science-inquiry-1",
+          "pages": "science-inquiry-1-ha7iz5",
+          "unit": "1-1",
+          "n": "02"
+        },
+        {
+          "repo": "planet-space-2",
+          "pages": "planet-space-2-v7c45w",
+          "unit": "2-1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-2",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "dEgRSohc29E",
+      "url": "https://youtube.com/shorts/dEgRSohc29E",
+      "title": "칠레 광부 33명, 가장 건조한 사막 아래가 왜 찜통이었을까?",
+      "label": "칠레 광부 33명 영상",
+      "dur": "1분 34초",
+      "note": "2010년 칠레 산호세 광산 매몰 사고로 지하 약 700m 갱도가 사막 아래인데도 30도가 넘었던 까닭(깊이 갈수록 오르는 땅속 온도, 1km마다 약 25℃ 계산 예시, 습도 90% 이상)과 17일을 버틴 배급·투표, 드릴 끝 쪽지, 구조 캡슐을 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "ST8C98gS40k",
+      "url": "https://youtube.com/shorts/ST8C98gS40k",
+      "title": "2만 4천 km 다가온 화요일 슈퍼문, 사진처럼 거대하지 않은 이유",
+      "label": "슈퍼문 영상",
+      "dur": "1분 22초",
+      "note": "2026년 11월 24일 슈퍼문(지구 중심에서 약 36만 km, 평균보다 약 2만 4천 km 가까움)으로 달의 타원 궤도(근지점·원지점), 겉보기 지름 약 13% 차이, 슈퍼문 사진이 거대해 보이는 원근 효과와 달 착시, 근지점 부근 보름의 기조력(평균 거리 때보다 약 20%↑)과 사리를 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "04"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "3Rog9rc-gFo",
+      "url": "https://youtube.com/shorts/3Rog9rc-gFo",
+      "title": "세종 때 일식 예보 15분 틀렸다고 곤장을 맞았다 | 칠정산",
+      "label": "세종 일식과 칠정산 영상",
+      "dur": "1분 18초",
+      "note": "1422년 세종실록에 남은 일식 예보 1각(약 15분) 오차와 곤장, 일식이 나라의 큰일이었던 까닭, 한양 기준으로 해와 달의 움직임을 계산한 역법 칠정산, 2035년 9월 2일 서울 부분일식 예고를 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-1",
+          "n": "03"
+        },
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "03"
+        }
+      ]
+    },
+    {
+      "id": "54jif4InrXU",
+      "url": "https://youtube.com/shorts/54jif4InrXU",
+      "title": "이렇게 맑은 호수에 왜 물고기가 없을까? | 산성비와 중화 반응",
+      "label": "산성비·중화 영상",
+      "dur": "1분 7초",
+      "note": "산성비로 산성이 된 호수에서 물고기가 사라진 까닭, 수소 이온(H⁺)과 pH, 석회(염기)를 뿌려 되살리는 중화 반응을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "1-2",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "Ukn46oT5Dlk",
+      "url": "https://youtube.com/shorts/Ukn46oT5Dlk",
+      "title": "해가 사라지자 6년 전쟁이 멈췄다 | 기원전 585년 할리스 강 일식",
+      "label": "할리스 강 일식 영상",
+      "dur": "1분 30초",
+      "note": "헤로도토스가 적은 기원전 585년 할리스 강 전투의 일식, 달 그림자가 달의 공전과 지구 자전으로 좁은 띠를 그리는 원리, 사로스 주기(18년 11일 8시간), 조석 마찰로 느려진 지구 자전(ΔT)을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "3-1",
+          "n": "03"
+        },
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "04"
+        }
+      ]
+    },
+    {
+      "id": "dNgUi0S6Nak",
+      "url": "https://youtube.com/shorts/dNgUi0S6Nak",
+      "title": "참새 20억 마리를 잡았더니, 이듬해 벌레가 들끓었다 | 생태 피라미드",
+      "label": "참새와 생태 피라미드 영상",
+      "dur": "1분 12초",
+      "note": "1958년 참새 박멸 뒤 벌레가 늘어난 사례로 먹이 관계와 생태 피라미드, 단계마다 약 10%만 넘어가는 에너지, 위 단계가 빠질 때 생태계 평형이 깨지는 과정을 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-1",
+          "n": "02"
+        }
+      ]
+    },
+    {
+      "id": "3gwpFrONS5g",
+      "url": "https://youtube.com/shorts/3gwpFrONS5g",
+      "title": "배가 멈춰 말까지 바다에 던졌다는 위도 30°, 사막도 왜 여기 있을까?",
+      "label": "대기 대순환(말 위도) 영상",
+      "dur": "1분 48초",
+      "note": "범선 시대 말 위도(아열대 고압대) 전설에서 출발해, 위도 30° 사막 띠, 기압대 4개(적도 저압대·아열대 고압대·한대 전선대·극 고압대), 해들리·극 순환(직접 순환)과 페렐 순환(간접 순환), 자전 때문에 고리가 셋인 이유, 무역풍·편서풍·극동풍을 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "01"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "whzdXMDQaX0",
-   "url": "https://youtube.com/shorts/whzdXMDQaX0",
-   "title": "오늘 먹은 밥과 휴대폰 전기, 출발점은 어디일까? | 태양 에너지의 여행",
-   "label": "태양 에너지 흐름 영상",
-   "dur": "2분 11초",
-   "note": "햇빛이 열·바람·비·밥·석탄·전기로 바뀌는 길과, 태양에서 오지 않은 에너지(조력·지열·원자력)를 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-2",
-     "n": "01"
-    },
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-2",
-     "n": "02"
-    },
-    {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "3-1",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "qvPDdxdJ5Ik",
-   "url": "https://youtube.com/shorts/qvPDdxdJ5Ik",
-   "title": "지구 반대편 바다가 왜 우리 겨울을 바꿀까? | 엘니뇨와 라니냐",
-   "label": "엘니뇨·라니냐 영상",
-   "dur": "2분 44초",
-   "note": "가열·냉각, 기압, 무역풍, 용승, 기압 역전(남방 진동), 이상기후, 반대 현상인 라니냐까지 세계지도 위 입체 모형으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-1",
-     "n": "03"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-2",
-     "n": "01"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-1",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "DeqhJRaZ4cY",
-   "url": "https://youtube.com/shorts/DeqhJRaZ4cY",
-   "title": "밀물과 썰물은 왜 하루 두 번 올까?",
-   "label": "조석 영상",
-   "dur": "2분 24초",
-   "note": "달의 인력과 원심력이 만드는 기조력, 물때가 하루 약 50분씩 늦어지는 이유(달 공전 약 12°·지구 자전 15°/시간), 보름·그믐의 사리와 상현·하현의 조금을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-1",
-     "n": "04"
-    }
-   ]
-  },
-  {
-   "id": "dycg8euJ5jQ",
-   "url": "https://youtube.com/shorts/dycg8euJ5jQ",
-   "title": "온실 효과가 없으면 왜 지구가 얼어붙을까?",
-   "label": "온실 효과 영상",
-   "dur": "2분 10초",
-   "note": "복사 평형 온도(약 −18℃), 태양 복사와 지구 복사, 대기의 선택적 흡수와 대기의 창, 재복사, 온실 효과의 강화와 지구 온난화를 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "01"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-2",
-     "n": "03"
-    },
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-1",
-     "n": "03"
-    },
-    {
-     "repo": "earth-system-1",
-     "pages": "earth-system-1-n87d3q",
-     "unit": "1-1",
-     "n": "01"
-    },
-    {
-     "repo": "earth-system-1",
-     "pages": "earth-system-1-n87d3q",
-     "unit": "1-1",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "vR1MeJZnDNY",
-   "url": "https://youtube.com/shorts/vR1MeJZnDNY",
-   "title": "석탄 100을 태우면 전구 빛은 겨우 2 | 효율 100%가 없는 이유",
-   "label": "에너지 효율 영상",
-   "dur": "1분 25초",
-   "note": "카르노가 꿰뚫어 본 열기관 효율의 한계(이론상 최대 약 63%), 석탄 100 → 전기 40 → 송전 후 38 → 백열전구 빛 2, 사라진 98은 열(에너지 보존), 같은 밝기에 LED는 전기를 75% 이상 덜 쓰는 이유를 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-2",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "GK58HyoiN2k",
-   "url": "https://youtube.com/shorts/GK58HyoiN2k",
-   "title": "빅뱅의 증거는 왜 '잡음'으로 발견됐을까? | 우주 배경 복사",
-   "label": "우주 배경 복사 영상",
-   "dur": "1분 41초",
-   "note": "비둘기 똥 잡음 추리 → 38만 년 전후(안개가 걷히듯 빛이 퍼져 나감) → 파장이 늘어 2.7K → 1948년 예측과 정상 우주론 비교까지, 빅뱅 우주론의 증거를 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "2-1",
-     "n": "01"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-2",
-     "n": "04"
-    }
-   ]
-  },
-  {
-   "id": "Psl5byWqemQ",
-   "url": "https://youtube.com/shorts/Psl5byWqemQ",
-   "title": "11월에 또 태풍? 올해만 32개 | 엘니뇨와 태풍의 연료 길",
-   "label": "태풍과 엘니뇨 영상",
-   "dur": "1분 0초",
-   "note": "올해 북서태평양 태풍 32개, 태풍의 연료(수증기·잠열), 뜨거워진 바다와 엘니뇨가 바꾼 태풍의 출발점과 경로를 위성 지도 모식도로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-1",
-     "n": "04"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-2",
-     "n": "01"
-    },
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-1",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "QgkHpeV6q1I",
-   "url": "https://youtube.com/shorts/QgkHpeV6q1I",
-   "title": "그림 속 달은 왜 위로 볼록할까? | 신윤복 「월하정인」과 부분월식",
-   "label": "월하정인 부분월식 영상",
-   "dur": "42초",
-   "note": "그림 속 달이 초승달·그믐달이 아닌 이유(밝은 쪽은 해 쪽)와, 지구 본그림자가 달 아래쪽을 가리는 부분월식 가설(1793년 8월 21일 계산)을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-1",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "8rruy5KxRZo",
-   "url": "https://youtube.com/shorts/8rruy5KxRZo",
-   "title": "풍선 42개로 4,900m까지 날아간 남자 | 진짜 '업'",
-   "label": "정원 의자 풍선 비행 영상",
-   "dur": "1분 24초",
-   "note": "높이 올라갈수록 기압이 낮아지는데도 풍선이 계속 뜨는 이유(위아래 기압 차이, 풍선 팽창)와 기온 감률을 1982년 실화로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "03"
-    },
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "B6J2hImTYzE",
-   "url": "https://youtube.com/shorts/B6J2hImTYzE",
-   "title": "「절규」의 붉은 하늘, 지구 반대편 화산 때문이었을까? | 뭉크와 크라카타우",
-   "label": "절규와 크라카타우 화산 영상",
-   "dur": "1분 26초",
-   "note": "1883년 크라카타우 분화의 기압 파동과 성층권 황산 방울(에어로졸), 파란 하늘과 붉은 노을의 원리(레일리 산란), 「절규」 하늘 해석을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "1-2",
-     "n": "02"
-    },
-    {
-     "repo": "earth-system-1",
-     "pages": "earth-system-1-n87d3q",
-     "unit": "1-2",
-     "n": "03"
-    },
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "01"
-    }
-   ]
-  },
-  {
-   "id": "XQREDEjHY_U",
-   "url": "https://youtube.com/shorts/XQREDEjHY_U",
-   "title": "같은 강원도인데 15도 차이? | 산을 넘으면 더워지는 바람, 높새바람",
-   "label": "높새바람(푄) 영상",
-   "dur": "1분 33초",
-   "note": "공기 덩어리가 태백산맥을 넘으며 건조·습윤 단열 감률, 상승 응결 고도, 단열 압축을 거치는 과정을 단계 기록 카드로 따라가고, 풍향(동풍·남서풍)에 따라 영서·영동 중 더운 쪽이 바뀌는 실제 사례(2016-05-20, 2023-05-16)를 비교합니다.",
-   "targets": [
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "w76c_F-89-Q",
-   "url": "https://youtube.com/shorts/w76c_F-89-Q",
-   "title": "엔진 두 개가 다 멈춘 여객기는 왜 떨어지지 않았을까?",
-   "label": "허드슨강 여객기 영상",
-   "dur": "1분 17초",
-   "note": "2009년 허드슨강의 기적으로 양력(날개 아래위 기압 차, 공기 흐름을 아래로 꺾는 반작용), 엔진 없이 높이를 내주며 나아가는 활공, 모의 비행으로 본 판단 시간 35초를 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "3-2",
-     "n": "02"
-    },
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-2",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "USWsewzGL7k",
-   "url": "https://youtube.com/shorts/USWsewzGL7k",
-   "title": "율곡 이이가 일기에 적은 '손님별'의 정체 | 1572년 초신성",
-   "label": "튀코 초신성 영상",
-   "dur": "1분 33초",
-   "note": "율곡의 『석담일기』와 튀코 브라헤가 본 1572년 새 별, 아리스토텔레스의 변하지 않는 하늘, 지구 자전으로 생기는 시차와 달만큼 가까웠다면 생겼을 약 1° 어긋남, 백색 왜성이 터진 Ia형 초신성, 튀코의 관측에서 케플러 법칙까지를 정리합니다.",
-   "targets": [
-    {
-     "repo": "science-history-culture",
-     "pages": "science-history-culture-unsp9m",
-     "unit": "1",
-     "n": "04"
-    },
-    {
-     "repo": "science-inquiry-1",
-     "pages": "science-inquiry-1-ha7iz5",
-     "unit": "1-1",
-     "n": "02"
-    },
-    {
-     "repo": "planet-space-2",
-     "pages": "planet-space-2-v7c45w",
-     "unit": "2-1",
-     "n": "02"
-    },
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-2",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "dEgRSohc29E",
-   "url": "https://youtube.com/shorts/dEgRSohc29E",
-   "title": "칠레 광부 33명, 가장 건조한 사막 아래가 왜 찜통이었을까?",
-   "label": "칠레 광부 33명 영상",
-   "dur": "1분 34초",
-   "note": "2010년 칠레 산호세 광산 매몰 사고로 지하 약 700m 갱도가 사막 아래인데도 30도가 넘었던 까닭(깊이 갈수록 오르는 땅속 온도, 1km마다 약 25℃ 계산 예시, 습도 90% 이상)과 17일을 버틴 배급·투표, 드릴 끝 쪽지, 구조 캡슐을 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "3-1",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "ST8C98gS40k",
-   "url": "https://youtube.com/shorts/ST8C98gS40k",
-   "title": "2만 4천 km 다가온 화요일 슈퍼문, 사진처럼 거대하지 않은 이유",
-   "label": "슈퍼문 영상",
-   "dur": "1분 22초",
-   "note": "2026년 11월 24일 슈퍼문(지구 중심에서 약 36만 km, 평균보다 약 2만 4천 km 가까움)으로 달의 타원 궤도(근지점·원지점), 겉보기 지름 약 13% 차이, 슈퍼문 사진이 거대해 보이는 원근 효과와 달 착시, 근지점 부근 보름의 기조력(평균 거리 때보다 약 20%↑)과 사리를 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-1",
-     "n": "04"
-    },
-    {
-     "repo": "integrated-science-1",
-     "pages": "integrated-science-1-m5s9xt",
-     "unit": "3-1",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "3Rog9rc-gFo",
-   "url": "https://youtube.com/shorts/3Rog9rc-gFo",
-   "title": "세종 때 일식 예보 15분 틀렸다고 곤장을 맞았다 | 칠정산",
-   "label": "세종 일식과 칠정산 영상",
-   "dur": "1분 18초",
-   "note": "1422년 세종실록에 남은 일식 예보 1각(약 15분) 오차와 곤장, 일식이 나라의 큰일이었던 까닭, 한양 기준으로 해와 달의 움직임을 계산한 역법 칠정산, 2035년 9월 2일 서울 부분일식 예고를 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-1",
-     "n": "03"
-    },
-    {
-     "repo": "science-history-culture",
-     "pages": "science-history-culture-unsp9m",
-     "unit": "1",
-     "n": "03"
-    }
-   ]
-  },
-  {
-   "id": "54jif4InrXU",
-   "url": "https://youtube.com/shorts/54jif4InrXU",
-   "title": "이렇게 맑은 호수에 왜 물고기가 없을까? | 산성비와 중화 반응",
-   "label": "산성비·중화 영상",
-   "dur": "1분 7초",
-   "note": "산성비로 산성이 된 호수에서 물고기가 사라진 까닭, 수소 이온(H⁺)과 pH, 석회(염기)를 뿌려 되살리는 중화 반응을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "1-2",
-     "n": "02"
-    }
-   ]
-  },
-  {
-   "id": "Ukn46oT5Dlk",
-   "url": "https://youtube.com/shorts/Ukn46oT5Dlk",
-   "title": "해가 사라지자 6년 전쟁이 멈췄다 | 기원전 585년 할리스 강 일식",
-   "label": "할리스 강 일식 영상",
-   "dur": "1분 30초",
-   "note": "헤로도토스가 적은 기원전 585년 할리스 강 전투의 일식, 달 그림자가 달의 공전과 지구 자전으로 좁은 띠를 그리는 원리, 사로스 주기(18년 11일 8시간), 조석 마찰로 느려진 지구 자전(ΔT)을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "earth-science-2",
-     "pages": "earth-science-2-vm2vds",
-     "unit": "3-1",
-     "n": "03"
-    },
-    {
-     "repo": "science-history-culture",
-     "pages": "science-history-culture-unsp9m",
-     "unit": "1",
-     "n": "02"
-    },
-    {
-     "repo": "earth-system-2",
-     "pages": "earth-system-2-yd8mc7",
-     "unit": "2-1",
-     "n": "04"
-    }
-   ]
-  },
-  {
-   "id": "dNgUi0S6Nak",
-   "url": "https://youtube.com/shorts/dNgUi0S6Nak",
-   "title": "참새 20억 마리를 잡았더니, 이듬해 벌레가 들끓었다 | 생태 피라미드",
-   "label": "참새와 생태 피라미드 영상",
-   "dur": "1분 12초",
-   "note": "1958년 참새 박멸 뒤 벌레가 늘어난 사례로 먹이 관계와 생태 피라미드, 단계마다 약 10%만 넘어가는 에너지, 위 단계가 빠질 때 생태계 평형이 깨지는 과정을 영상으로 정리합니다.",
-   "targets": [
-    {
-     "repo": "integrated-science-2",
-     "pages": "integrated-science-2-yt735f",
-     "unit": "2-1",
-     "n": "02"
-    }
-   ]
-  }
- ]
+  ]
 }
