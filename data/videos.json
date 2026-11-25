@@ -555,6 +555,34 @@
           "n": "04"
         }
       ]
+    },
+    {
+      "id": "WkZdDjN0LkQ",
+      "url": "https://youtube.com/shorts/WkZdDjN0LkQ",
+      "title": "날씨가 바꾼 전쟁 ③: 42만 대군을 먼저 무너뜨린 건 겨울이 아니었다",
+      "label": "나폴레옹 러시아 원정 대륙성 기후 영상",
+      "dur": "1분 10초",
+      "note": "나폴레옹 러시아 원정(1812)에서 출발해, 땅과 물의 비열 차이 → 해양성 기후(기온 차 작음)와 대륙성 기후(기온 차 큼), 바다에서 먼 내륙의 여름 더위, 구름 없는 맑은 밤의 복사 냉각을 정리합니다.",
+      "targets": [
+        {
+          "repo": "climate-change-ecology",
+          "pages": "climate-change-ecology-ux3gtk",
+          "unit": "1",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "01"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "01"
+        }
+      ]
     }
   ]
 }
