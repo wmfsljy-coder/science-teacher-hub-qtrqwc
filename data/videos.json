@@ -505,6 +505,56 @@
           "n": "01"
         }
       ]
+    },
+    {
+      "id": "BSOL0veq208",
+      "url": "https://youtube.com/shorts/BSOL0veq208",
+      "title": "날씨가 바꾼 전쟁 ①: 한겨울 적벽에 분 남동풍, 확률은 3%였다",
+      "label": "적벽대전 남동풍 영상",
+      "dur": "1분 15초",
+      "note": "적벽대전(208)의 하룻밤 남동풍에서 출발해, 겨울 장강의 보통 바람인 북서풍, 북반구 저기압 주변 바람(시계 반대 회전), 다가오는 저기압 앞쪽(동쪽)에 부는 남동풍, 저기압이 지날 때 남동풍 → 비바람 → 북서풍으로 바뀌는 순서를 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "04"
+        }
+      ]
+    },
+    {
+      "id": "FuJ7dCLp9MU",
+      "url": "https://youtube.com/shorts/FuJ7dCLp9MU",
+      "title": "날씨가 바꾼 전쟁 ②: 나쁜 날씨가 노르망디 상륙을 살렸다?",
+      "label": "노르망디 상륙 고기압 영상",
+      "dur": "1분 6초",
+      "note": "노르망디 상륙(1944) 날씨 예보에서 출발해, 기압 상승 = 고기압 접근, 고기압의 하강 기류 → 공기가 데워짐 → 구름 소산·구름 바닥 상승, 등압선 간격이 넓으면 약한 바람·낮은 파도, 두 저기압 사이에 끼어든 고기압 마루를 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "04"
+        }
+      ]
     }
   ]
 }
