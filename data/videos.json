@@ -55,6 +55,12 @@
           "pages": "integrated-science-1-m5s9xt",
           "unit": "3-1",
           "n": "02"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "01"
         }
       ]
     },
@@ -490,6 +496,12 @@
           "repo": "earth-system-2",
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-1",
+          "n": "01"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
           "n": "01"
         }
       ]
