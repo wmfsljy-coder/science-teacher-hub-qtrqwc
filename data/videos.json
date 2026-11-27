@@ -713,6 +713,28 @@
           "n": "04"
         }
       ]
+    },
+    {
+      "id": "cD9O6rLIPSo",
+      "url": "https://youtube.com/shorts/cD9O6rLIPSo",
+      "title": "같은 길, 같은 기온인데 다리 위만 먼저 어는 이유",
+      "label": "다리 결빙(블랙아이스) 영상",
+      "dur": "1분 3초",
+      "note": "맑은 밤 복사 냉각, 땅에 저장된 열이 도로를 데우는 전도, 위아래로 열을 잃는 다리, 블랙아이스를 영상으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        }
+      ]
     }
   ]
 }
