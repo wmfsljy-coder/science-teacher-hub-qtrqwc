@@ -1345,3 +1345,171 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
+/* ---------- 예측 → 확인 · 탐구 모드 / 시연 모드 — 2026-11-27 (ESS Lab 검토에서 얻은 설계 아이디어, 코드는 새로 씀) ----------
+   시뮬레이션 장면에서 먼저 예측을 고르고, 실험한 뒤 확인한다. 틀린 보기마다 왜 틀렸는지(오개념)를 보여 준다.
+     <div class="pv" data-key="p1-3" data-form="3">          ← key: 단원 안에서 겹치지 않는 이름, data-form: 같은 소단원 형성평가 문항 번호(없어도 됨)
+       <p class="pv-q">가지를 위로 올리면 잎 두께는?</p>
+       <button class="pv-o" data-ok>두꺼워진다</button>
+       <button class="pv-o" data-why="빛이 적은 곳 잎이 넓고 얇습니다 …">얇아진다</button>
+       <button class="pv-o" data-why="…">그대로다</button>
+       <p class="pv-a">빛이 센 곳 잎은 울타리 조직이 여러 겹이라 두껍습니다.</p>
+     </div>
+   · 탐구 모드(학생 기본): 예측을 고르기 전에는 바로 뒤 실험판(.stage-card)이 잠긴다. 고른 뒤 실험하고, 본 것을 한 줄 기록하면(또는
+     그 장면 미션을 끝내면) '예측 확인하기'가 열린다. 이야기의 마지막 장면(결말)은 그 이야기의 예측 확인을 모두 마쳐야 열린다.
+     미션이 어려워도 기록만 쓰면 확인할 수 있으므로 막혀서 못 나가는 일은 없다.
+   · 시연 모드(교사 기본: 교사 기기·?open=1): 잠금 없음, '정답 보기' 바로 가능. 이야기 막대에 모드 전환 단추(교사에게만).
+     칠판모드 탭의 '🧪 시뮬레이션 시연'·칠판 강의 화면의 '🧪 시연' 은 ?open=1&mode=demo&sec=NN 으로 연다.
+     ?mode=inquiry 로 교사도 학생 화면을 미리 볼 수 있다. 학생 기기는 늘 탐구 모드. */
+(function () {
+  "use strict";
+  var T = !!window.STH_TEACHER, MODE = null;
+  try { MODE = localStorage.getItem("sth-mode"); } catch (e) {}
+  if (!T) MODE = "inquiry";
+  else { var mm = /[?&]mode=(demo|inquiry)/.exec(location.search); if (mm) MODE = mm[1]; if (MODE !== "inquiry") MODE = "demo"; }
+  window.STH_MODE = MODE;
+  document.documentElement.classList.add(MODE === "demo" ? "sth-demo" : "sth-inquiry");
+  var BASE = "sth-pv-" + location.pathname + "-";
+  function get(k) { try { return JSON.parse(localStorage.getItem(BASE + k) || "null") || {}; } catch (e) { return {}; } }
+  function put(k, v) { try { localStorage.setItem(BASE + k, JSON.stringify(v)); } catch (e) {} }
+  function el(t, c, h) { var e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; }
+  function css() {
+    if (document.getElementById("pv-css")) return;
+    var s = el("style"); s.id = "pv-css";
+    s.textContent =
+      ".pv{margin:14px 0;padding:14px 16px;border:2px solid #c7d2fe;border-radius:16px;background:linear-gradient(180deg,#f5f7ff,#fff);color:#1e293b}" +
+      ".pv-h{display:flex;align-items:center;gap:8px;font-weight:900;font-size:13px;color:#4338ca;letter-spacing:.02em;margin-bottom:6px}" +
+      ".pv-h .pv-mode{margin-left:auto;font-weight:700;font-size:12px;color:#64748b}" +
+      ".pv-q{margin:0 0 10px;font-weight:800;font-size:16px;line-height:1.5}" +
+      ".pv-os{display:grid;gap:8px}.pv-o{display:block;width:100%;text-align:left;padding:10px 14px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#1e293b;font:inherit;font-weight:700;cursor:pointer;line-height:1.45}" +
+      ".pv-o:hover:not([disabled]){border-color:#6366f1}.pv-o.picked{border-color:#4f46e5;background:#eef2ff}.pv-o[disabled]{cursor:default;opacity:.75}" +
+      ".pv-o .pv-w{display:none;margin-top:6px;font-weight:600;font-size:13.5px;color:#9f1239}" +
+      ".pv.shown .pv-o{opacity:1}.pv.shown .pv-o.ok{border-color:#16a34a;background:#f0fdf4}.pv.shown .pv-o.ok::after{content:' ✓ 맞는 예측';color:#15803d;font-weight:900}" +
+      ".pv.shown .pv-o.bad .pv-w{display:block}.pv.shown .pv-o.bad.picked{border-color:#e11d48;background:#fff1f2}.pv.shown .pv-o.bad.picked::before{content:'내 예측 ✗ ';color:#be123c;font-weight:900}" +
+      ".pv-a{display:none;margin:10px 0 0;padding:10px 12px;border-radius:12px;background:#ecfdf5;font-weight:600;line-height:1.55}.pv.shown .pv-a{display:block}" +
+      ".pv-rec{display:none;margin-top:10px}.pv.picked-one .pv-rec,.pv.shown .pv-rec{display:block}" +
+      ".pv-rec label{display:block;font-weight:800;font-size:13.5px;margin-bottom:4px}.pv-rec textarea{width:100%;min-height:44px;border:2px solid #cbd5e1;border-radius:10px;padding:8px 10px;font:inherit;resize:vertical;box-sizing:border-box}" +
+      ".pv-go{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.pv-go .pv-note{font-size:13px;color:#64748b}" +
+      ".pv-form{display:none;margin-top:8px;font-weight:800;font-size:13.5px}.pv.shown .pv-form{display:inline-block}" +
+      ".sth-demo .pv-rec{display:none!important}" +
+      ".pv-veil{position:relative}.pv-veil>*:not(.pv-veil-msg){filter:blur(2px) grayscale(.4);opacity:.45;pointer-events:none;user-select:none}" +
+      ".pv-veil-msg{position:absolute;z-index:5;left:50%;top:40px;transform:translateX(-50%);background:#fff;border:2px solid #6366f1;border-radius:999px;padding:9px 18px;font-weight:900;color:#3730a3;box-shadow:0 6px 18px rgba(0,0,0,.12);white-space:nowrap}" +
+      ".pv-endlock>*:not(.scene-head):not(.pv-endmsg){display:none!important}" +
+      ".pv-endmsg{margin:12px 0;padding:16px;border:2px dashed #6366f1;border-radius:16px;background:#f5f7ff;color:#1e293b;font-weight:700;line-height:1.6}.pv-endmsg button{margin:6px 6px 0 0}" +
+      ".pv-mode-sw{margin-left:8px;font-weight:700;font-size:12.5px;padding:6px 10px;border-radius:999px;border:2px solid #6366f1;background:#fff;color:#3730a3;cursor:pointer}" +
+      ".pv-mode-tag{margin-left:8px;font-size:12.5px;font-weight:800;color:#4338ca}" +
+      "@media print{.pv-veil-msg,.pv-mode-sw{display:none}}";
+    document.head.appendChild(s);
+  }
+  function secOf(n) { var p = n.closest(".tab-panel"); if (!p) return ""; var b = document.querySelector('.tab-btn[data-tab="' + p.getAttribute("data-panel") + '"]'); return b ? (b.getAttribute("data-sec") || "") : ""; }
+  function stageAfter(box) { var n = box.nextElementSibling; while (n && !n.classList.contains("stage-card") && !n.classList.contains("mission") && !n.classList.contains("pv")) n = n.nextElementSibling; return n && n.classList.contains("stage-card") ? n : null; }
+  function missionDone(box) { var sc = box.closest(".scene"); if (!sc) return false; var ms = sc.querySelectorAll(".mission"); if (!ms.length) return false; for (var i = 0; i < ms.length; i++) if (!ms[i].classList.contains("ok")) return false; return true; }
+  var all = [];
+  function build(box) {
+    if (box._pv) return; box._pv = true; all.push(box);
+    var key = box.getAttribute("data-key") || ("pv" + all.length), st = get(key);
+    var opts = Array.prototype.slice.call(box.querySelectorAll(".pv-o")), qEl = box.querySelector(".pv-q"), aEl = box.querySelector(".pv-a");
+    box.insertBefore(el("div", "pv-h", "🔮 먼저 예측하기<span class='pv-mode'>" + (MODE === "demo" ? "시연 모드 · 바로 정답을 볼 수 있음" : "고르기 → 실험 → 본 것 기록 → 확인") + "</span>"), box.firstChild);
+    var os = el("div", "pv-os");
+    if (qEl && qEl.nextSibling) box.insertBefore(os, qEl.nextSibling); else box.appendChild(os);
+    opts.forEach(function (o, i) {
+      os.appendChild(o); o.type = "button";
+      o.classList.add(o.hasAttribute("data-ok") ? "ok" : "bad");
+      var w = o.getAttribute("data-why"); if (w && !o.hasAttribute("data-ok")) o.appendChild(el("span", "pv-w", "왜 아닐까? " + w));
+      o.addEventListener("click", function () {
+        if (MODE !== "demo" && typeof st.i === "number") return;     /* 탐구 모드: 처음 고른 예측은 바꾸지 않는다 */
+        st.i = i; put(key, st); update();
+      });
+    });
+    var rec = el("div", "pv-rec", "<label>✏️ 실험해 보고 본 것을 한 줄로 적어 보세요</label><textarea maxlength='300' placeholder='예: ○○을 바꿨더니 …'></textarea><div class='pv-go'><button type='button' class='btn primary pv-check'>예측 확인하기</button><span class='pv-note'></span></div>");
+    if (aEl) box.insertBefore(rec, aEl); else box.appendChild(rec);
+    var ta = rec.querySelector("textarea"), chk = rec.querySelector(".pv-check"), note = rec.querySelector(".pv-note");
+    ta.value = st.r || "";
+    ta.addEventListener("input", function () { st.r = ta.value; put(key, st); paint(); });
+    chk.addEventListener("click", function () { st.s = 1; put(key, st); update(); });
+    if (MODE === "demo") {
+      var db = el("button", "btn pv-show", "정답 보기"); db.type = "button";
+      var g = el("div", "pv-go"); g.appendChild(db);
+      if (aEl) box.insertBefore(g, aEl); else box.appendChild(g);
+      db.addEventListener("click", function () { box.classList.toggle("shown"); db.textContent = box.classList.contains("shown") ? "정답 가리기" : "정답 보기"; });
+    }
+    var fq = box.getAttribute("data-form"), sec = secOf(box);
+    if (fq && sec) { var a = el("a", "pv-form", "📝 형성평가 " + fq + "번에서 다시 확인하기 →"); a.href = "form-" + sec + ".html"; a.target = "_blank"; a.rel = "noopener"; box.appendChild(a); }
+    var stage = stageAfter(box), veilMsg = null;
+    function paint() {
+      var picked = typeof st.i === "number";
+      opts.forEach(function (o, i) { o.classList.toggle("picked", st.i === i); o.disabled = MODE !== "demo" && picked && st.i !== i && !st.s; });
+      box.classList.toggle("picked-one", picked);
+      if (MODE === "demo") return;
+      box.classList.toggle("shown", !!st.s);
+      var md = missionDone(box), recOK = (st.r || "").replace(/\s/g, "").length >= 5;
+      chk.disabled = !(picked && (md || recOK)); chk.hidden = !!st.s; ta.readOnly = !!st.s;
+      note.textContent = st.s || !picked ? "" : md ? "미션을 끝냈어요. 한 줄 기록을 남기고 확인해 보세요." : (recOK ? "미션까지 끝내고 확인하면 더 좋아요." : "본 것을 5글자 넘게 적으면 확인할 수 있어요.");
+      if (stage) {
+        stage.classList.toggle("pv-veil", !picked);
+        if (!picked && !veilMsg) { veilMsg = el("div", "pv-veil-msg", "🔒 위에서 예측을 하나 고르면 실험판이 열립니다"); stage.appendChild(veilMsg); }
+        if (picked && veilMsg) { veilMsg.remove(); veilMsg = null; if (window.redrawCanvases) window.redrawCanvases(); }
+      }
+    }
+    box._done = function () { return MODE === "demo" || !!get(key).s; };
+    box._paint = paint;
+  }
+  /* 이야기 마지막 장면(결말) 잠금 — 탐구 모드에서만 */
+  function update() {
+    all.forEach(function (b) { b._paint(); });
+    if (MODE === "demo") return;
+    Array.prototype.forEach.call(document.querySelectorAll(".episode"), function (ep) {
+      var sc = ep.querySelectorAll(":scope > .scene"); if (sc.length < 2) return;
+      var last = sc[sc.length - 1];
+      var boxes = Array.prototype.slice.call(ep.querySelectorAll(".pv")).filter(function (b) { return b._pv && !last.contains(b); });
+      if (!boxes.length) return;
+      var left = boxes.filter(function (b) { return !b._done(); });
+      last.classList.toggle("pv-endlock", left.length > 0);
+      var msg = last.querySelector(".pv-endmsg");
+      if (!left.length) { if (msg) msg.remove(); return; }
+      if (!msg) { msg = el("div", "pv-endmsg"); var hd = last.querySelector(".scene-head"); last.insertBefore(msg, hd ? hd.nextSibling : last.firstChild); }
+      var sig = left.map(function (b) { return Array.prototype.indexOf.call(sc, b.closest(".scene")); }).join(",");
+      if (msg._sig === sig) return; msg._sig = sig;
+      var dots = ep.querySelectorAll(".ep-dot");
+      msg.innerHTML = "🔒 <b>탐구 모드</b> · 이 이야기의 예측 확인을 모두 마치면 결말이 열립니다. 남은 것 " + left.length + "개<br>";
+      sig.split(",").forEach(function (s) {
+        var idx = +s, go = el("button", "btn", "장면 " + (idx + 1) + "(으)로 가기"); go.type = "button";
+        go.addEventListener("click", function () { if (dots[idx]) dots[idx].click(); });
+        msg.appendChild(go);
+      });
+    });
+  }
+  /* 이야기 막대에 모드 표시 · 교사 전환 단추, 칠판모드 탭 줄마다 '🧪 시뮬레이션 시연'(교사에게만) */
+  function bars() {
+    Array.prototype.forEach.call(document.querySelectorAll(".ep-bar"), function (bar) {
+      var ep = bar.closest(".episode");
+      if (bar._pcm || !ep || !ep.querySelector(".pv")) return; bar._pcm = true;
+      var rs = bar.querySelector(".ep-reset");
+      if (T) {
+        var b = el("button", "pv-mode-sw", MODE === "demo" ? "📺 시연 모드 ▸ 학생 탐구 모드로 보기" : "🔬 탐구 모드 ▸ 시연 모드로");
+        b.type = "button"; b.title = "교사에게만 보입니다. 학생 기기는 늘 탐구 모드입니다.";
+        b.addEventListener("click", function () {
+          try { localStorage.setItem("sth-mode", MODE === "demo" ? "inquiry" : "demo"); } catch (e) {}
+          location.href = location.href.replace(/([?&])mode=(demo|inquiry)(&|$)/, "$1").replace(/[?&]$/, "");
+        });
+        bar.insertBefore(b, rs);
+      } else bar.insertBefore(el("span", "pv-mode-tag", "🔬 탐구 모드"), rs);
+    });
+    if (T) Array.prototype.forEach.call(document.querySelectorAll(".board-row"), function (row) {
+      if (row._pcm) return; var a0 = row.querySelector('a[href^="board-"]'); if (!a0) return; row._pcm = true;
+      var m = /board-(\d+)\.html/.exec(a0.getAttribute("href")); if (!m) return;
+      var a = el("a", "btn", "🧪 시뮬레이션 시연"); a.href = "?open=1&mode=demo&sec=" + m[1]; a.style.textDecoration = "none";
+      a.title = "이 소단원 이야기를 잠금 없는 시연 모드로 엽니다(교사에게만 보임)";
+      a0.parentNode.appendChild(a);
+    });
+  }
+  var timer = 0;
+  function scan() { timer = 0; var bx = document.querySelectorAll(".pv"); for (var i = 0; i < bx.length; i++) build(bx[i]); bars(); update(); }
+  function soon() { if (!timer) timer = setTimeout(scan, 150); }
+  function start() {
+    css(); scan();
+    new MutationObserver(function (ms) {
+      for (var i = 0; i < ms.length; i++) { var t = ms[i].target; if (ms[i].type === "childList" ? !(t.closest && t.closest(".pv-endmsg,.kind-badges,.kind-tip")) : (t.classList && t.classList.contains("mission"))) { soon(); return; } }
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();
