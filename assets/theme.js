@@ -1241,3 +1241,107 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
+
+/* ---------- 자료 종류 배지 · '이 모형이 실제와 다른 점' 카드 — 2026-11-27 ----------
+   그림마다 그것이 무엇인지 작은 배지로 밝힌다(ESS Lab 검토에서 얻은 설계 아이디어, 코드는 새로 씀).
+     · 대상: .canvas-wrap(이야기·실험실·실제 자료의 그림), figure.hero-art(이야기 첫 삽화), 그 밖에 [data-kind] 를 단 요소
+     · 종류: data-kind="model calc" 처럼 공백으로 여러 개. 그 요소에 없으면 가장 가까운 조상의 data-kind,
+             그것도 없으면 실제 자료 칸(.real-sec) 안은 obs, 삽화는 sketch, 나머지 그림은 model.
+         sketch 모식도 · model 모형 · obs 실제 관측값 · text 교과서 수록값 · calc 계산값
+     · 자리: 기본은 오른쪽 위(실제 자료 칸 안은 왼쪽 아래, 삽화는 늘 그림의 오른쪽 위). 그림과 겹치면 data-kind-pos="tl|tr|bl|br"
+             를 그림 틀이나 조상(실제 자료 카드 = 사례의 kindPos)에 단다. data-kind="none" 이면 달지 않는다.
+     · 배지를 누르면 그 종류의 뜻이 한 줄로 나온다(터치 기기에서도 읽히게).
+   '실제와 다른 점'은 단원 HTML 의 <details class="model-gap"> 에 쓰고, 모양만 여기서 맞춘다(지침: _tools/STUDIO_GUIDE.md). */
+(function () {
+  "use strict";
+  var KINDS = {
+    sketch: ["모식도", "실제 모습을 이해하기 쉽게 단순하게 그린 그림입니다. 사진이 아니며 크기·색은 실제와 다를 수 있습니다."],
+    model: ["모형", "몇 가지 규칙(식)만 넣어 움직이게 만든 모형입니다. 실제 현상의 일부만 담고 있습니다."],
+    obs: ["실제 관측값", "실제로 재거나 관측한 자료입니다. 출처는 그림 아래나 '실제와 다른 점' 카드에 있습니다."],
+    text: ["교과서 수록값", "교과서와 참고 자료에 실린 대표값입니다. 측정 방법과 자료에 따라 조금씩 다를 수 있습니다."],
+    calc: ["계산값", "식에 값을 넣어 계산한 결과입니다. 넣은 값이 바뀌면 결과도 바뀝니다."]
+  };
+  function css() {
+    if (document.getElementById("kind-css")) return;
+    var s = document.createElement("style"); s.id = "kind-css";
+    s.textContent =
+      "figure.hero-art{position:relative}" +
+      ".kind-badges{position:absolute;z-index:3;display:flex;gap:4px;flex-wrap:wrap;max-width:60%;pointer-events:none}" +
+      ".kind-badges.tr{top:6px;right:6px;justify-content:flex-end}.kind-badges.tl{top:6px;left:6px}.kind-badges.br{bottom:6px;right:6px;justify-content:flex-end}.kind-badges.bl{bottom:6px;left:6px}" +
+      ".kind-b{pointer-events:auto;font:800 10.5px/1 'Gothic A1','Segoe UI',sans-serif;padding:3px 6px;border-radius:999px;border:1.5px solid;background:rgba(255,255,255,.86);cursor:help;letter-spacing:-.01em;box-shadow:0 1px 2px rgba(0,0,0,.12)}" +
+      ".kind-b[data-k=sketch]{color:#6d28d9;border-color:#a78bfa}.kind-b[data-k=model]{color:#1d4ed8;border-color:#93c5fd}.kind-b[data-k=obs]{color:#047857;border-color:#6ee7b7}.kind-b[data-k=text]{color:#b45309;border-color:#fcd34d}.kind-b[data-k=calc]{color:#334155;border-color:#94a3b8}" +
+      ".kind-tip{position:absolute;z-index:4;max-width:min(320px,80%);background:#fff;color:#1e293b;border:1.5px solid #cbd5e1;border-radius:10px;padding:8px 10px;font:600 12.5px/1.45 'Gothic A1','Segoe UI',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.15)}" +
+      ".kind-tip.tr{top:30px;right:6px}.kind-tip.tl{top:30px;left:6px}.kind-tip.br{bottom:30px;right:6px}.kind-tip.bl{bottom:30px;left:6px}" +
+      "details.model-gap{margin:14px 0 6px;border:2px solid var(--line,#d6dde6);border-radius:14px;background:var(--card,#fff);padding:0 14px}" +
+      "details.model-gap>summary{cursor:pointer;list-style:none;padding:11px 0;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}" +
+      "details.model-gap>summary::-webkit-details-marker{display:none}" +
+      "details.model-gap>summary::after{content:'▾ 열어 보기';margin-left:auto;font-size:12.5px;font-weight:700;color:var(--mute,#64748b)}" +
+      "details.model-gap[open]>summary::after{content:'▴ 접기'}" +
+      "details.model-gap ul{margin:0 0 8px;padding-left:20px;line-height:1.6}details.model-gap li{margin:3px 0}" +
+      "details.model-gap li b{font-weight:800}details.model-gap .gap-src{margin:6px 0 12px;font-size:13px;color:var(--mute,#64748b);line-height:1.55}" +
+      "@media print{.kind-tip{display:none}}";
+    document.head.appendChild(s);
+  }
+  function kindsOf(el) {
+    var own = el.getAttribute("data-kind");
+    if (!own) { var a = el.parentElement && el.parentElement.closest("[data-kind]"); if (a) own = a.getAttribute("data-kind"); }
+    if (!own) own = el.closest(".real-sec") ? "obs" : (el.matches("figure.hero-art") ? "sketch" : "model");
+    return own.split(/\s+/).filter(function (k) { return KINDS[k]; });
+  }
+  function badge(el) {
+    if (el._kindDone) return;
+    el._kindDone = true;
+    var ks = kindsOf(el); if (!ks.length) return;
+    var hero = el.matches("figure.hero-art");
+    var pa = el.closest("[data-kind-pos]");
+    var pos = hero ? "tr" : ((pa && pa.getAttribute("data-kind-pos")) || (el.closest(".real-sec") ? "bl" : "tr"));
+    var box = document.createElement("div"); box.className = "kind-badges " + pos;
+    box.setAttribute("role", "note");
+    var tip = null;
+    ks.forEach(function (k) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "kind-b"; b.setAttribute("data-k", k);
+      b.textContent = KINDS[k][0]; b.title = KINDS[k][1]; b.setAttribute("aria-label", "자료 종류: " + KINDS[k][0] + ". " + KINDS[k][1]);
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (tip && tip._k === k) { tip.remove(); tip = null; return; }
+        if (tip) tip.remove();
+        tip = document.createElement("div"); tip.className = "kind-tip " + pos; tip._k = k;
+        tip.innerHTML = "<b>" + KINDS[k][0] + "</b> · " + KINDS[k][1];
+        el.appendChild(tip);
+      });
+      box.appendChild(b);
+    });
+    el.appendChild(box);
+    if (hero) { box._hero = el; heroes.push(box); place(box); }
+  }
+  /* 삽화는 그림(img) 오른쪽 위에 — 설명 글·'크게' 단추와 겹치지 않게 그림 자리를 재서 놓는다 */
+  var heroes = [];
+  function place(box) {
+    var f = box._hero, im = f.querySelector("img"); if (!im) return;
+    box.style.top = (im.offsetTop + 6) + "px";
+    box.style.right = Math.max(6, f.clientWidth - (im.offsetLeft + im.offsetWidth) + 6) + "px";
+  }
+  function placeAll() { heroes.forEach(place); }
+  function scan() {
+    timer = 0;
+    var list = document.querySelectorAll(".canvas-wrap, figure.hero-art, [data-kind]:not(.canvas-wrap):not(figure):not(details):not(section):not(.real-one):not(.lab-case)");
+    for (var i = 0; i < list.length; i++) {
+      var el = list[i];
+      if (el.closest(".kind-badges")) continue;
+      if (el.getAttribute("data-kind") === "none") { el._kindDone = true; continue; }
+      if (!el.matches(".canvas-wrap, figure.hero-art") && getComputedStyle(el).position === "static") el.style.position = "relative";
+      badge(el);
+    }
+    placeAll();
+  }
+  var timer = 0;
+  function soon() { if (!timer) timer = setTimeout(scan, 120); }
+  function start() {
+    css(); scan();
+    window.addEventListener("resize", placeAll); window.addEventListener("load", placeAll);
+    document.addEventListener("load", function (e) { if (e.target && e.target.tagName === "IMG") placeAll(); }, true);
+    new MutationObserver(soon).observe(document.body, { childList: true, subtree: true });
+    document.addEventListener("click", function () { var t = document.querySelectorAll(".kind-tip"); for (var i = 0; i < t.length; i++) t[i].remove(); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();

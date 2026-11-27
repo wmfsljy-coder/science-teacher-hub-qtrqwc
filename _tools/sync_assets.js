@@ -69,11 +69,17 @@ function stamp(htmlFile, assetsDir, prefix) {
   const out = raw.replace(re, (all, pre, name) => { const v = ver(path.join(assetsDir, name)); return v ? pre + prefix + name + "?v=" + v + '"' : all; });
   if (out !== raw) { changed++; console.log("주소 ?v=", path.relative(ROOT, htmlFile)); if (!DRY) fs.writeFileSync(htmlFile, out); }
 }
+/* 단원 폴더 안 스크립트(episodes.js·lab-cases.js·real-cases.js·data/*.js)도 내용이 바뀌면 주소가 바뀌게 (2026-11-27) */
+function stampLocal(htmlFile, unitDir) {
+  const raw = fs.readFileSync(htmlFile, "utf8");
+  const out = raw.replace(/(<script\b[^>]*?\bsrc=")((?:data\/)?[\w.-]+\.js)(?:\?v=[0-9a-f]*)?"/g, (all, pre, name) => { const v = ver(path.join(unitDir, name)); return v ? pre + name + "?v=" + v + '"' : all; });
+  if (out !== raw) { changed++; console.log("단원 스크립트 ?v=", path.relative(ROOT, htmlFile)); if (!DRY) fs.writeFileSync(htmlFile, out); }
+}
 for (const r of repos) {
   const ad = path.join(ROOT, r, "assets");
   for (const u of fs.readdirSync(path.join(ROOT, r))) {
     const f = path.join(ROOT, r, u, "index.html");
-    if (fs.existsSync(f)) stamp(f, ad, "../assets/");
+    if (fs.existsSync(f)) { stamp(f, ad, "../assets/"); stampLocal(f, path.join(ROOT, r, u)); }
   }
   const top = path.join(ROOT, r, "index.html");
   if (fs.existsSync(top)) stamp(top, ad, "assets/");
