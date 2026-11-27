@@ -751,6 +751,28 @@
      "n": "04"
     }
    ]
+  },
+  {
+   "id": "SdSjmnbBrxk",
+   "url": "https://youtube.com/shorts/SdSjmnbBrxk",
+   "title": "영하 2도인데 체감 영하 10도, 8도는 어디로 갔을까?",
+   "label": "체감온도(바람과 열 손실) 영상",
+   "dur": "58초",
+   "note": "같은 영하 2도라도 바람이 불면 더 춥게 느끼는 까닭을, 피부 위 따뜻한 공기층(경계층)을 바람이 걷어 가 몸의 열을 더 빨리 잃는 과정과 기상청 체감온도 식(기온·풍속)으로 정리합니다. 바람이 불어도 자동차·수도관은 기온 아래로 식지 않는다는 점도 다룹니다.",
+   "targets": [
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "1-1",
+     "n": "03"
+    },
+    {
+     "repo": "earth-system-2",
+     "pages": "earth-system-2-yd8mc7",
+     "unit": "2-2",
+     "n": "01"
+    }
+   ]
   }
  ]
 }
