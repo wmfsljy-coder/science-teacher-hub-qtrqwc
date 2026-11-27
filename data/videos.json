@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-27",
   "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
   "videos": [
     {
@@ -26,6 +26,12 @@
           "repo": "earth-science-2",
           "pages": "earth-science-2-vm2vds",
           "unit": "3-2",
+          "n": "02"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
           "n": "02"
         }
       ]
@@ -61,6 +67,18 @@
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-2",
           "n": "01"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "03"
+        },
+        {
+          "repo": "earth-system-1",
+          "pages": "earth-system-1-n87d3q",
+          "unit": "1-1",
+          "n": "03"
         }
       ]
     },
@@ -105,6 +123,18 @@
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-1",
           "n": "04"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "03"
         }
       ]
     },
@@ -145,6 +175,12 @@
           "pages": "earth-system-1-n87d3q",
           "unit": "1-1",
           "n": "03"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
+          "n": "02"
         }
       ]
     },
@@ -161,6 +197,12 @@
           "pages": "integrated-science-2-yt735f",
           "unit": "2-2",
           "n": "03"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "02"
         }
       ]
     },
@@ -211,6 +253,12 @@
           "pages": "integrated-science-2-yt735f",
           "unit": "2-1",
           "n": "03"
+        },
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-1",
+          "n": "03"
         }
       ]
     },
@@ -227,6 +275,12 @@
           "pages": "earth-science-2-vm2vds",
           "unit": "3-1",
           "n": "03"
+        },
+        {
+          "repo": "science-history-culture",
+          "pages": "science-history-culture-unsp9m",
+          "unit": "1",
+          "n": "02"
         }
       ]
     },
@@ -276,6 +330,12 @@
           "repo": "earth-system-2",
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-2",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "3-1",
           "n": "01"
         }
       ]
@@ -349,6 +409,18 @@
           "pages": "earth-science-2-vm2vds",
           "unit": "3-2",
           "n": "02"
+        },
+        {
+          "repo": "integrated-science-1",
+          "pages": "integrated-science-1-m5s9xt",
+          "unit": "2-1",
+          "n": "02"
+        },
+        {
+          "repo": "planet-space-2",
+          "pages": "planet-space-2-v7c45w",
+          "unit": "2-1",
+          "n": "04"
         }
       ]
     },
@@ -365,6 +437,18 @@
           "pages": "integrated-science-1-m5s9xt",
           "unit": "3-1",
           "n": "02"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-2",
+          "n": "02"
+        },
+        {
+          "repo": "earth-system-1",
+          "pages": "earth-system-1-n87d3q",
+          "unit": "1-1",
+          "n": "01"
         }
       ]
     },
@@ -387,6 +471,12 @@
           "pages": "integrated-science-1-m5s9xt",
           "unit": "3-1",
           "n": "02"
+        },
+        {
+          "repo": "planet-space-1",
+          "pages": "planet-space-1-89nvyr",
+          "unit": "1-2",
+          "n": "01"
         }
       ]
     },
@@ -425,6 +515,12 @@
           "pages": "integrated-science-2-yt735f",
           "unit": "1-2",
           "n": "02"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "1-2",
+          "n": "03"
         }
       ]
     },
@@ -469,6 +565,18 @@
           "pages": "integrated-science-2-yt735f",
           "unit": "2-1",
           "n": "02"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "2-1",
+          "n": "01"
+        },
+        {
+          "repo": "integrated-science-2",
+          "pages": "integrated-science-2-yt735f",
+          "unit": "1-1",
+          "n": "03"
         }
       ]
     },
@@ -581,6 +689,28 @@
           "pages": "earth-system-2-yd8mc7",
           "unit": "2-2",
           "n": "01"
+        }
+      ]
+    },
+    {
+      "id": "viapYwoLVuQ",
+      "url": "https://youtube.com/shorts/viapYwoLVuQ",
+      "title": "서울은 맑은데 전북엔 폭설? | 해기차와 구름거리",
+      "label": "서해안형 폭설 영상",
+      "dur": "1분 28초",
+      "note": "찬 공기가 따뜻한 서해를 지나며 데워지고 수증기를 얻어(해기차) 솟아오르면 구름거리가 생겨 서해안·호남에 눈이 몰리는 까닭을 위성사진으로 정리합니다.",
+      "targets": [
+        {
+          "repo": "earth-system-2",
+          "pages": "earth-system-2-yd8mc7",
+          "unit": "2-2",
+          "n": "02"
+        },
+        {
+          "repo": "earth-science-2",
+          "pages": "earth-science-2-vm2vds",
+          "unit": "1-1",
+          "n": "04"
         }
       ]
     }
