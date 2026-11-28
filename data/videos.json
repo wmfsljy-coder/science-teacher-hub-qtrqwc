@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27",
+ "updated": "2026-11-28",
  "note": "유튜브 「교실 너머 과학」(옛 이름 와이랩) 영상 ↔ 단원 소단원 연결. targets: repo(과목 키)·pages(저장소 이름)·unit(단원 폴더)·n(소단원 번호). 단원 화면은 assets/video-links.js 가, 허브 칠판모드는 fetch-content 가 읽습니다.",
  "videos": [
   {
@@ -770,6 +770,28 @@
      "repo": "earth-system-2",
      "pages": "earth-system-2-yd8mc7",
      "unit": "2-2",
+     "n": "01"
+    }
+   ]
+  },
+  {
+   "id": "BdMGBGmZSvE",
+   "url": "https://youtube.com/shorts/BdMGBGmZSvE",
+   "title": "같은 '녹'인데 손난로만 50도, 녹슨 대문은 왜 차가울까",
+   "label": "손난로(철의 산화와 발열 속도) 영상",
+   "dur": "1분 34초",
+   "note": "손난로와 녹슨 대문은 둘 다 철이 산화(녹스는) 중인데 왜 손난로만 뜨거운지를, 철 1그램이 녹슬 때 나오는 열은 거의 같고 다른 것은 열이 나오는 속도라는 점으로 풀어 줍니다. 철 가루(표면적), 소금물과 숯 가루(반응 촉진), 속봉지의 작은 구멍(산소 조절)이 발열 속도를 맞추는 과정과 미군 발 난로·1978년 손난로 이야기를 담았습니다. 저온 화상 주의도 함께.",
+   "targets": [
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "1-2",
+     "n": "03"
+    },
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "1-2",
      "n": "01"
     }
    ]
