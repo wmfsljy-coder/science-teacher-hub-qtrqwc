@@ -795,6 +795,46 @@
      "n": "01"
     }
    ]
+  },
+  {
+   "id": "CT2NZHZz4xo",
+   "url": "https://youtube.com/shorts/CT2NZHZz4xo",
+   "title": "피는 4,600만 년을 버텼는데, DNA는 왜 사라졌을까?",
+   "label": "쥬라기 공원 DNA(DNA 반감기와 화석) 영상",
+   "dur": "1분 20초",
+   "note": "「쥬라기 공원」처럼 호박이나 화석 속 DNA로 공룡을 되살릴 수 있는지를 따져 봅니다. 4,600만 년 된 모기 화석의 배 속에는 피 분자(헴)에서 온 성분이 남았지만 DNA는 없었던 까닭을, 뉴질랜드 모아 뼈로 잰 DNA 반감기(약 521년, 약 13℃ 땅속 기준 추정)로 계산해 보여 줍니다. 새를 뺀 공룡이 약 6,600만 년 전 멸종했다는 점과 새가 살아남은 공룡의 한 갈래라는 점도 다룹니다.",
+   "targets": [
+    {
+     "repo": "integrated-science-1",
+     "pages": "integrated-science-1-m5s9xt",
+     "unit": "3-3",
+     "n": "03"
+    },
+    {
+     "repo": "integrated-science-1",
+     "pages": "integrated-science-1-m5s9xt",
+     "unit": "2-2",
+     "n": "03"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "2-1",
+     "n": "02"
+    },
+    {
+     "repo": "earth-science-2",
+     "pages": "earth-science-2-vm2vds",
+     "unit": "2-1",
+     "n": "03"
+    },
+    {
+     "repo": "integrated-science-2",
+     "pages": "integrated-science-2-yt735f",
+     "unit": "1-1",
+     "n": "01"
+    }
+   ]
   }
  ]
 }
