@@ -22,35 +22,66 @@
     ranges.forEach(function (r) {
       var lo = +r.min, hi = +r.max, st = +r.step || 1, vals = [];
       for (var x = lo; x <= hi + 1e-9; x += st) vals.push(+x.toFixed(6));
-      dims.push({ kind: "r", el: r, vals: vals });
+      dims.push({ kind: "r", el: r, vals: vals, full: vals.slice(), init: +r.value });
     });
     segs.forEach(function (bs) { dims.push({ kind: "s", btns: bs, vals: bs.map(function (_, i) { return i; }) }); });
     var total = dims.reduce(function (a, d) { return a * d.vals.length; }, 1);
     /* 너무 많으면 슬라이더부터 성기게 */
-    while (total > LIMIT) {
-      var big = dims.filter(function (d) { return d.kind === "r"; }).sort(function (a, b) { return b.vals.length - a.vals.length; })[0];
-      if (!big || big.vals.length < 4) break;
-      big.vals = big.vals.filter(function (_, i) { return i % 2 === 0; });
-      total = dims.reduce(function (a, d) { return a * d.vals.length; }, 1);
+    function thin(ds) {
+      var tot = ds.reduce(function (a, d) { return a * d.vals.length; }, 1);
+      while (tot > LIMIT) {
+        var big = ds.filter(function (d) { return d.kind === "r"; }).sort(function (a, b) { return b.vals.length - a.vals.length; })[0];
+        if (!big || big.vals.length < 4) break;
+        big.vals = big.vals.filter(function (_, i) { return i % 2 === 0; });
+        tot = ds.reduce(function (a, d) { return a * d.vals.length; }, 1);
+      }
     }
+    thin(dims);
+    var thinned = dims.some(function (d) { return d.kind === "r" && d.vals.length < d.full.length; });
     function setDim(d, k) {
       if (d.kind === "r") { d.el.value = String(d.vals[k]); d.el.dispatchEvent(new Event("input", { bubbles: true })); }
       else d.btns[d.vals[k]].click();
     }
-    var passN = 0, first = null, idx = dims.map(function () { return 0; }), n = 0, t0 = Date.now();
-    dims.forEach(function (d) { setDim(d, 0); });
-    while (true) {
-      var r = null;
-      try { r = card._judge ? card._judge() : null; } catch (e) { errs.push(id + " judge: " + e.message); break; }
-      if (r && r.ok) { passN++; if (!first) first = dims.map(function (d, i) { return d.kind === "r" ? d.vals[idx[i]] : d.btns[d.vals[idx[i]]].textContent; }); }
-      n++;
-      /* 다음 조합 */
-      var k = dims.length - 1;
-      while (k >= 0) { idx[k]++; if (idx[k] < dims[k].vals.length) { setDim(dims[k], idx[k]); break; } idx[k] = 0; setDim(dims[k], 0); k--; }
-      if (k < 0 || !dims.length) break;
-      if (n % 200 === 0) await new Promise(function (res) { setTimeout(res, 0); });
+    var t0 = Date.now(), stop = false;
+    async function sweep(ds) {
+      var passN = 0, first = null, idx = ds.map(function () { return 0; }), n = 0;
+      ds.forEach(function (d) { setDim(d, 0); });
+      while (true) {
+        var r = null;
+        try { r = card._judge ? card._judge() : null; } catch (e) { errs.push(id + " judge: " + e.message); stop = true; break; }
+        if (r && r.ok) { passN++; if (!first) first = ds.map(function (d, i) { return d.kind === "r" ? d.vals[idx[i]] : d.btns[d.vals[idx[i]]].textContent; }); }
+        n++;
+        /* 다음 조합 */
+        var k = ds.length - 1;
+        while (k >= 0) { idx[k]++; if (idx[k] < ds[k].vals.length) { setDim(ds[k], idx[k]); break; } idx[k] = 0; setDim(ds[k], 0); k--; }
+        if (k < 0 || !ds.length) break;
+        if (n % 200 === 0) await new Promise(function (res) { setTimeout(res, 0); });
+      }
+      return { n: n, passN: passN, first: first };
     }
+    var res = await sweep(dims), n = res.n, step2 = null;
+    /* 2차(2026-11-28): 성기게 훑어 합격 조합을 못 찾았을 때만. '실제 자료' 사례처럼 보는 범위 슬라이더(햇수·기준 거리·연도 등)와
+       촘촘한 답 슬라이더(± 허용 폭)가 섞이면 고르게 성긴 격자가 답 칸을 건너뛴다. 값 가짓수가 적은 슬라이더부터 하나씩 늘려
+       처음 값에 묶고 나머지를 다시 훑는다. 실제 화면 조작으로 합격 조합을 찾아야 통과하는 기준은 그대로다. */
+    if (!stop && !res.passN && thinned) {
+      var rs = dims.filter(function (d) { return d.kind === "r"; }).sort(function (a, b) { return a.full.length - b.full.length; });
+      for (var fz = 1; fz < rs.length && !res.passN && !stop; fz++) {
+        var frozen = rs.slice(0, fz);
+        var ds2 = dims.map(function (d) {
+          if (frozen.indexOf(d) >= 0) {
+            var bi = 0; d.full.forEach(function (v, i) { if (Math.abs(v - d.init) < Math.abs(d.full[bi] - d.init)) bi = i; });
+            return { kind: "r", el: d.el, vals: [d.full[bi]], full: d.full };
+          }
+          return d.kind === "r" ? { kind: "r", el: d.el, vals: d.full.slice(), full: d.full } : d;
+        });
+        thin(ds2);
+        res = await sweep(ds2); n += res.n;
+        step2 = "슬라이더 " + fz + "개를 처음 값에 묶고 다시 훑음";
+      }
+    }
+    var passN = res.passN, first = res.first;
     out[id] = { 조합: n, 합격: passN, 처음합격: first, 초: ((Date.now() - t0) / 1000).toFixed(1) };
+    if (step2) out[id].재탐색 = step2;
   }
   return JSON.stringify({ cases: out, errors: errs }, null, 1);
 })();
